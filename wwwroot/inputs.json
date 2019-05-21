@@ -1,0 +1,1004 @@
+﻿[
+  {
+    "nodeType": "fieldset",
+    "legend": "Actions",
+    "children": [
+      {
+        "nodeType": "input",
+        "label": "Save SVG",
+        "title": "Save SVG",
+        "value": "Save SVG",
+        "type": "saveSvg",
+        "inputType": "button"
+      },
+      {
+        "nodeType": "input",
+        "label": "Save PNG",
+        "title": "Save PNG",
+        "value": "Save PNG",
+        "type": "savePng",
+        "inputType": "button"
+      }
+    ]
+  },
+  {
+    "nodeType": "fieldset",
+    "legend": "Figure",
+    "children": [
+      {
+        "nodeType": "input",
+        "label": "🔄",
+        "title": "Rotate",
+        "type": "rotate",
+        "target": "figure",
+        "transformIndex": 1,
+        "inputType": "range",
+        "value": 0,
+        "min": -100,
+        "max": 100
+      },
+      {
+        "nodeType": "input",
+        "label": "Scale X",
+        "title": "Scale X",
+        "type": "scaleX",
+        "target": "figure",
+        "inputType": "range",
+        "value": 1,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      },
+      {
+        "nodeType": "input",
+        "label": "Scale Y",
+        "title": "Scale Y",
+        "type": "scaleY",
+        "target": "figure",
+        "inputType": "range",
+        "value": 1,
+        "min": 0,
+        "max": 2,
+        "step": 0.01
+      }
+    ]
+  },
+  {
+    "nodeType": "fieldset",
+    "legend": "Hair",
+    "children": [
+      {
+        "nodeType": "input",
+        "label": "Quantity",
+        "title": "Quantity",
+        "type": "hairQuantity",
+        "inputType": "range",
+        "value": 13,
+        "min": 0,
+        "max": 100,
+        "target": "hair"
+      },
+      {
+        "nodeType": "input",
+        "label": "Distance",
+        "title": "Distance",
+        "type": "hairDistance",
+        "inputType": "range",
+        "value": 15,
+        "min": 0,
+        "max": 100,
+        "target": "hair"
+      },
+      {
+        "nodeType": "input",
+        "label": "🔘",
+        "title": "Stroke width",
+        "type": "hairProperty",
+        "inputType": "range",
+        "value": 8,
+        "min": 0,
+        "max": 100,
+        "target": "hairStrand",
+        "path": "style strokeWidth"
+      },
+      {
+        "nodeType": "input",
+        "label": "🔘",
+        "title": "Stroke color",
+        "type": "hairProperty",
+        "inputType": "color",
+        "value": "#000000",
+        "target": "hairStrand",
+        "path": "style stroke"
+      },
+      {
+        "nodeType": "fieldset",
+        "legend": "Curve",
+        "children": [
+          {
+            "nodeType": "input",
+            "label": "X 0",
+            "title": "X 0",
+            "type": "pathData",
+            "inputType": "range",
+            "value": 0,
+            "min": -15,
+            "max": 15,
+            "target": "hairStrand",
+            "pointIndex": 0,
+            "valueIndex": 0
+          },
+          {
+            "nodeType": "input",
+            "label": "Y 0",
+            "title": "Y 0",
+            "type": "pathData",
+            "inputType": "range",
+            "value": -100,
+            "min": -115,
+            "max": -85,
+            "target": "hairStrand",
+            "pointIndex": 0,
+            "valueIndex": 1
+          },
+          {
+            "nodeType": "input",
+            "label": "X1 1",
+            "title": "X1 1",
+            "type": "pathData",
+            "inputType": "range",
+            "value": 0,
+            "min": -15,
+            "max": 15,
+            "target": "hairStrand",
+            "pointIndex": 1,
+            "valueIndex": 0
+          },
+          {
+            "nodeType": "input",
+            "label": "Y1 1",
+            "title": "Y1 1",
+            "type": "pathData",
+            "inputType": "range",
+            "value": -50,
+            "min": -65,
+            "max": -45,
+            "target": "hairStrand",
+            "pointIndex": 1,
+            "valueIndex": 1
+          },
+          {
+            "nodeType": "input",
+            "label": "X2 1",
+            "title": "X2 1",
+            "type": "pathData",
+            "inputType": "range",
+            "value": 0,
+            "min": -15,
+            "max": 15,
+            "target": "hairStrand",
+            "pointIndex": 1,
+            "valueIndex": 2
+          },
+          {
+            "nodeType": "input",
+            "label": "Y2 1",
+            "title": "Y2 1",
+            "type": "pathData",
+            "inputType": "range",
+            "value": 50,
+            "min": 45,
+            "max": 65,
+            "target": "hairStrand",
+            "pointIndex": 1,
+            "valueIndex": 3
+          },
+          {
+            "nodeType": "input",
+            "label": "X 1",
+            "title": "X 1",
+            "type": "pathData",
+            "inputType": "range",
+            "value": 0,
+            "min": -15,
+            "max": 15,
+            "target": "hairStrand",
+            "pointIndex": 1,
+            "valueIndex": 4
+          },
+          {
+            "nodeType": "input",
+            "label": "Y 1",
+            "title": "Y 1",
+            "type": "pathData",
+            "inputType": "range",
+            "value": 100,
+            "max": 115,
+            "min": 85,
+            "target": "hairStrand",
+            "pointIndex": 1,
+            "valueIndex": 5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nodeType": "fieldset",
+    "legend": "Head",
+    "children": [
+      {
+        "nodeType": "input",
+        "label": "🔄",
+        "title": "Rotate",
+        "type": "rotate",
+        "target": "head",
+        "transformIndex": 1,
+        "inputType": "range",
+        "value": 0,
+        "min": -100,
+        "max": 100
+      },
+      {
+        "nodeType": "input",
+        "label": "↔",
+        "title": "Horizontal displacement",
+        "type": "propertyPath",
+        "inputType": "range",
+        "value": 0,
+        "min": -100,
+        "max": 100,
+        "target": "head",
+        "path": "transform baseVal 0 matrix e"
+      },
+      {
+        "nodeType": "input",
+        "label": "↕",
+        "title": "Vertical displacement",
+        "type": "propertyPath",
+        "inputType": "range",
+        "value": 0,
+        "min": -100,
+        "max": 100,
+        "target": "head",
+        "path": "transform baseVal 0 matrix f"
+      },
+      {
+        "nodeType": "input",
+        "label": "Radius X",
+        "title": "Radius X",
+        "type": "propertyPath",
+        "inputType": "range",
+        "value": 100,
+        "min": 0,
+        "max": 200,
+        "target": "head",
+        "path": "rx baseVal value"
+      },
+      {
+        "nodeType": "input",
+        "label": "Radius Y",
+        "title": "Radius Y",
+        "type": "propertyPath",
+        "inputType": "range",
+        "value": 150,
+        "min": 50,
+        "max": 250,
+        "target": "head",
+        "path": "ry baseVal value"
+      },
+      {
+        "nodeType": "input",
+        "label": "🔴",
+        "title": "Fill color",
+        "type": "propertyPath",
+        "inputType": "color",
+        "value": "#ffffff",
+        "target": "head",
+        "path": "style fill"
+      },
+      {
+        "nodeType": "input",
+        "label": "🔘",
+        "title": "Stroke color",
+        "type": "propertyPath",
+        "inputType": "color",
+        "value": "#000000",
+        "target": "head",
+        "path": "style stroke"
+      },
+      {
+        "nodeType": "input",
+        "label": "🔘",
+        "title": "Stroke width",
+        "type": "propertyPath",
+        "inputType": "range",
+        "value": 8,
+        "min": 0,
+        "max": 40,
+        "target": "head",
+        "path": "style strokeWidth"
+      }
+    ]
+  },
+  {
+    "nodeType": "fieldset",
+    "legend": "Eyebrows",
+    "children": [
+      {
+        "nodeType": "input",
+        "label": "↔",
+        "title": "Horizontal displacement",
+        "type": "propertyPath",
+        "inputType": "range",
+        "value": 0,
+        "min": -100,
+        "max": 100,
+        "target": "eyebrows",
+        "path": "transform baseVal 0 matrix e"
+      },
+      {
+        "nodeType": "input",
+        "label": "↕",
+        "title": "Vertical displacement",
+        "type": "propertyPath",
+        "inputType": "range",
+        "value": -80,
+        "min": -200,
+        "max": 10,
+        "target": "eyebrows",
+        "path": "transform baseVal 0 matrix f"
+      },
+      {
+        "nodeType": "input",
+        "label": "Distance",
+        "title": "Distance",
+        "type": "distance",
+        "inputType": "range",
+        "value": 50,
+        "min": 0,
+        "max": 100,
+        "target": "leftEyebrow rightEyebrow"
+      },
+      {
+        "nodeType": "input",
+        "label": "🔄 each",
+        "title": "Rotate",
+        "type": "rotate",
+        "target": "leftEyebrow rightEyebrow",
+        "transformIndex": 1,
+        "inputType": "range",
+        "value": 0,
+        "min": -50,
+        "max": 50
+      },
+      {
+        "nodeType": "input",
+        "label": "🔄 mirrored",
+        "title": "Rotate",
+        "type": "rotateMirrored",
+        "target": "leftEyebrow rightEyebrow",
+        "inputType": "range",
+        "value": 0,
+        "min": -50,
+        "max": 50
+      },
+      {
+        "nodeType": "input",
+        "label": "🔄 both",
+        "title": "Rotate",
+        "type": "rotate",
+        "target": "eyebrows",
+        "transformIndex": 1,
+        "inputType": "range",
+        "value": 0,
+        "min": -50,
+        "max": 50
+      },
+      {
+        "nodeType": "input",
+        "label": "🔘",
+        "title": "Stroke color",
+        "type": "propertyPath",
+        "inputType": "color",
+        "value": "#000000",
+        "target": "leftEyebrow rightEyebrow",
+        "path": "style stroke"
+      },
+      {
+        "nodeType": "input",
+        "label": "🔘",
+        "title": "Stroke width",
+        "type": "propertyPath",
+        "inputType": "range",
+        "value": 8,
+        "min": 0,
+        "max": 40,
+        "target": "leftEyebrow rightEyebrow",
+        "path": "style strokeWidth"
+      },
+      {
+        "nodeType": "fieldset",
+        "legend": "Curve",
+        "children": [
+          {
+            "nodeType": "input",
+            "label": "X 0",
+            "title": "X 0",
+            "type": "pathData",
+            "inputType": "range",
+            "value": -15,
+            "min": -30,
+            "max": 0,
+            "target": "leftEyebrow rightEyebrow",
+            "pointIndex": 0,
+            "valueIndex": 0
+          },
+          {
+            "nodeType": "input",
+            "label": "Y 0",
+            "title": "Y 0",
+            "type": "pathData",
+            "inputType": "range",
+            "value": 0,
+            "min": -15,
+            "max": 15,
+            "target": "leftEyebrow rightEyebrow",
+            "pointIndex": 0,
+            "valueIndex": 1
+          },
+          {
+            "nodeType": "input",
+            "label": "X1 1",
+            "title": "X1 1",
+            "type": "pathData",
+            "inputType": "range",
+            "value": -5,
+            "min": -20,
+            "max": 10,
+            "target": "leftEyebrow rightEyebrow",
+            "pointIndex": 1,
+            "valueIndex": 0
+          },
+          {
+            "nodeType": "input",
+            "label": "Y1 1",
+            "title": "Y1 1",
+            "type": "pathData",
+            "inputType": "range",
+            "value": 0,
+            "min": -15,
+            "max": 15,
+            "target": "leftEyebrow rightEyebrow",
+            "pointIndex": 1,
+            "valueIndex": 1
+          },
+          {
+            "nodeType": "input",
+            "label": "X2 1",
+            "title": "X2 1",
+            "type": "pathData",
+            "inputType": "range",
+            "value": 5,
+            "min": -10,
+            "max": 20,
+            "target": "leftEyebrow rightEyebrow",
+            "pointIndex": 1,
+            "valueIndex": 2
+          },
+          {
+            "nodeType": "input",
+            "label": "Y2 1",
+            "title": "Y2 1",
+            "type": "pathData",
+            "inputType": "range",
+            "value": 0,
+            "min": -15,
+            "max": 15,
+            "target": "leftEyebrow rightEyebrow",
+            "pointIndex": 1,
+            "valueIndex": 3
+          },
+          {
+            "nodeType": "input",
+            "label": "X 1",
+            "title": "X 1",
+            "type": "pathData",
+            "inputType": "range",
+            "value": 15,
+            "min": 0,
+            "max": 30,
+            "target": "leftEyebrow rightEyebrow",
+            "pointIndex": 1,
+            "valueIndex": 4
+          },
+          {
+            "nodeType": "input",
+            "label": "Y 1",
+            "title": "Y 1",
+            "type": "pathData",
+            "inputType": "range",
+            "value": 0,
+            "min": -15,
+            "max": 15,
+            "target": "leftEyebrow rightEyebrow",
+            "pointIndex": 1,
+            "valueIndex": 5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nodeType": "fieldset",
+    "legend": "Eyes",
+    "children": [
+      {
+        "nodeType": "input",
+        "label": "↔",
+        "title": "Horizontal displacement",
+        "type": "propertyPath",
+        "inputType": "range",
+        "value": 0,
+        "min": -100,
+        "max": 100,
+        "target": "eyes",
+        "path": "transform baseVal 0 matrix e"
+      },
+      {
+        "nodeType": "input",
+        "label": "↕",
+        "title": "Vertical displacement",
+        "type": "propertyPath",
+        "inputType": "range",
+        "value": -30,
+        "min": -200,
+        "max": 100,
+        "target": "eyes",
+        "path": "transform baseVal 0 matrix f"
+      },
+      {
+        "nodeType": "input",
+        "label": "Distance",
+        "title": "Distance",
+        "type": "distance",
+        "inputType": "range",
+        "value": 50,
+        "min": 0,
+        "max": 100,
+        "target": "leftEye rightEye"
+      },
+      {
+        "nodeType": "input",
+        "label": "Radius X",
+        "title": "Radius X",
+        "inputType": "range",
+        "value": 15,
+        "min": 0,
+        "max": 60,
+        "type": "propertyPath",
+        "target": "leftEye rightEye",
+        "path": "rx baseVal value"
+      },
+      {
+        "nodeType": "input",
+        "label": "Radius Y",
+        "title": "Radius Y",
+        "inputType": "range",
+        "value": 15,
+        "min": 0,
+        "max": 60,
+        "type": "propertyPath",
+        "target": "leftEye rightEye",
+        "path": "ry baseVal value"
+      },
+      {
+        "nodeType": "input",
+        "label": "🔄 each",
+        "title": "Rotate",
+        "type": "rotate",
+        "target": "leftEye rightEye",
+        "transformIndex": 1,
+        "inputType": "range",
+        "value": 0,
+        "min": -50,
+        "max": 50
+      },
+      {
+        "nodeType": "input",
+        "label": "🔄 mirrored",
+        "title": "Rotate",
+        "type": "rotateMirrored",
+        "target": "leftEye rightEye",
+        "inputType": "range",
+        "value": 0,
+        "min": -50,
+        "max": 50
+      },
+      {
+        "nodeType": "input",
+        "label": "🔄 both",
+        "title": "Rotate",
+        "type": "rotate",
+        "target": "eyes",
+        "transformIndex": 1,
+        "inputType": "range",
+        "value": 0,
+        "min": -50,
+        "max": 50
+      },
+      {
+        "nodeType": "input",
+        "label": "🔴",
+        "title": "Fill color",
+        "type": "propertyPath",
+        "inputType": "color",
+        "value": "#ffffff",
+        "target": "leftEye rightEye",
+        "path": "style fill"
+      },
+      {
+        "nodeType": "input",
+        "label": "🔘",
+        "title": "Stroke color",
+        "type": "propertyPath",
+        "inputType": "color",
+        "value": "#000000",
+        "target": "leftEye rightEye",
+        "path": "style stroke"
+      },
+      {
+        "nodeType": "input",
+        "label": "🔘",
+        "title": "Stroke width",
+        "type": "propertyPath",
+        "inputType": "range",
+        "value": 8,
+        "min": 0,
+        "max": 40,
+        "target": "leftEye rightEye",
+        "path": "style strokeWidth"
+      }
+    ]
+  },
+  {
+    "nodeType": "fieldset",
+    "legend": "Nose",
+    "children": [
+      {
+        "nodeType": "input",
+        "label": "🔄",
+        "title": "Rotate",
+        "type": "rotate",
+        "target": "nose",
+        "transformIndex": 1,
+        "inputType": "range",
+        "value": 0,
+        "min": -180,
+        "max": 180
+      },
+      {
+        "nodeType": "input",
+        "label": "↔",
+        "title": "Horizontal displacement",
+        "type": "propertyPath",
+        "inputType": "range",
+        "value": 0,
+        "min": -100,
+        "max": 100,
+        "target": "nose",
+        "path": "transform baseVal 0 matrix e"
+      },
+      {
+        "nodeType": "input",
+        "label": "↕",
+        "title": "Vertical displacement",
+        "type": "propertyPath",
+        "inputType": "range",
+        "value": 0,
+        "min": -100,
+        "max": 100,
+        "target": "nose",
+        "path": "transform baseVal 0 matrix f"
+      },
+      {
+        "nodeType": "input",
+        "label": "🔘",
+        "title": "Stroke color",
+        "type": "propertyPath",
+        "inputType": "color",
+        "value": "#000000",
+        "target": "nose",
+        "path": "style stroke"
+      },
+      {
+        "nodeType": "input",
+        "label": "🔘",
+        "title": "Stroke width",
+        "type": "propertyPath",
+        "inputType": "range",
+        "value": 8,
+        "min": 0,
+        "max": 40,
+        "target": "nose",
+        "path": "style strokeWidth"
+      },
+      {
+        "nodeType": "fieldset",
+        "legend": "Curve",
+        "children": [
+          {
+            "nodeType": "input",
+            "label": "X 0",
+            "title": "X 0",
+            "type": "pathData",
+            "inputType": "range",
+            "value": 0,
+            "min": -15,
+            "max": 15,
+            "target": "nose",
+            "pointIndex": 0,
+            "valueIndex": 0
+          },
+          {
+            "nodeType": "input",
+            "label": "Y 0",
+            "title": "Y 0",
+            "type": "pathData",
+            "inputType": "range",
+            "value": -100,
+            "min": -115,
+            "max": -85,
+            "target": "nose",
+            "pointIndex": 0,
+            "valueIndex": 1
+          },
+          {
+            "nodeType": "input",
+            "label": "X1 1",
+            "title": "X1 1",
+            "type": "pathData",
+            "inputType": "range",
+            "value": 0,
+            "min": -15,
+            "max": 15,
+            "target": "nose",
+            "pointIndex": 1,
+            "valueIndex": 0
+          },
+          {
+            "nodeType": "input",
+            "label": "Y1 1",
+            "title": "Y1 1",
+            "type": "pathData",
+            "inputType": "range",
+            "value": -50,
+            "min": -65,
+            "max": -45,
+            "target": "nose",
+            "pointIndex": 1,
+            "valueIndex": 1
+          },
+          {
+            "nodeType": "input",
+            "label": "X2 1",
+            "title": "X2 1",
+            "type": "pathData",
+            "inputType": "range",
+            "value": 0,
+            "min": -15,
+            "max": 15,
+            "target": "nose",
+            "pointIndex": 1,
+            "valueIndex": 2
+          },
+          {
+            "nodeType": "input",
+            "label": "Y2 1",
+            "title": "Y2 1",
+            "type": "pathData",
+            "inputType": "range",
+            "value": 50,
+            "min": 45,
+            "max": 65,
+            "target": "nose",
+            "pointIndex": 1,
+            "valueIndex": 3
+          },
+          {
+            "nodeType": "input",
+            "label": "X 1",
+            "title": "X 1",
+            "type": "pathData",
+            "inputType": "range",
+            "value": 0,
+            "min": -15,
+            "max": 15,
+            "target": "nose",
+            "pointIndex": 1,
+            "valueIndex": 4
+          },
+          {
+            "nodeType": "input",
+            "label": "Y 1",
+            "title": "Y 1",
+            "type": "pathData",
+            "inputType": "range",
+            "value": 100,
+            "min": 85,
+            "max": 115,
+            "target": "nose",
+            "pointIndex": 1,
+            "valueIndex": 5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "nodeType": "fieldset",
+    "legend": "Mouth",
+    "children": [
+      {
+        "nodeType": "input",
+        "label": "🔄",
+        "title": "Rotate",
+        "type": "rotate",
+        "target": "mouth",
+        "transformIndex": 1,
+        "inputType": "range",
+        "value": 0,
+        "min": -100,
+        "max": 100
+      },
+      {
+        "nodeType": "input",
+        "label": "↔",
+        "title": "Horizontal displacement",
+        "type": "propertyPath",
+        "inputType": "range",
+        "value": 0,
+        "min": -100,
+        "max": 100,
+        "target": "mouth",
+        "path": "transform baseVal 0 matrix e"
+      },
+      {
+        "nodeType": "input",
+        "label": "↕",
+        "title": "Vertical displacement",
+        "type": "propertyPath",
+        "inputType": "range",
+        "value": 120,
+        "min": 20,
+        "max": 220,
+        "target": "mouth",
+        "path": "transform baseVal 0 matrix f"
+      },
+      {
+        "nodeType": "input",
+        "label": "🔘",
+        "title": "Stroke color",
+        "type": "propertyPath",
+        "inputType": "color",
+        "value": "#000000",
+        "target": "mouth",
+        "path": "style stroke"
+      },
+      {
+        "nodeType": "input",
+        "label": "🔘",
+        "title": "Stroke width",
+        "type": "propertyPath",
+        "inputType": "range",
+        "value": 8,
+        "min": 0,
+        "max": 40,
+        "target": "mouth",
+        "path": "style strokeWidth"
+      },
+      {
+        "nodeType": "fieldset",
+        "legend": "Curve",
+        "children": [
+          {
+            "nodeType": "input",
+            "label": "X 0",
+            "title": "X 0",
+            "type": "propertyPath",
+            "inputType": "range",
+            "value": -15,
+            "min": -30,
+            "max": 0,
+            "target": "mouth",
+            "path": "pathSegList 0 x"
+          },
+          {
+            "nodeType": "input",
+            "label": "Y 0",
+            "title": "Y 0",
+            "type": "propertyPath",
+            "inputType": "range",
+            "value": 0,
+            "min": -15,
+            "max": 15,
+            "target": "mouth",
+            "path": "pathSegList 0 y"
+          },
+          {
+            "nodeType": "input",
+            "label": "X1 1",
+            "title": "X1 1",
+            "type": "propertyPath",
+            "inputType": "range",
+            "value": -5,
+            "min": -20,
+            "max": 10,
+            "target": "mouth",
+            "path": "pathSegList 1 x1"
+          },
+          {
+            "nodeType": "input",
+            "label": "Y1 1",
+            "title": "Y1 1",
+            "type": "propertyPath",
+            "inputType": "range",
+            "value": 0,
+            "min": -15,
+            "max": 15,
+            "target": "mouth",
+            "path": "pathSegList 1 y1"
+          },
+          {
+            "nodeType": "input",
+            "label": "X2 1",
+            "title": "X2 1",
+            "type": "propertyPath",
+            "inputType": "range",
+            "value": 5,
+            "min": -10,
+            "max": 20,
+            "target": "mouth",
+            "path": "pathSegList 1 x2"
+          },
+          {
+            "nodeType": "input",
+            "label": "Y2 1",
+            "title": "Y2 1",
+            "type": "propertyPath",
+            "inputType": "range",
+            "value": 0,
+            "min": -15,
+            "max": 15,
+            "target": "mouth",
+            "path": "pathSegList 1 y2"
+          },
+          {
+            "nodeType": "input",
+            "label": "X 1",
+            "title": "X 1",
+            "type": "propertyPath",
+            "inputType": "range",
+            "value": 15,
+            "min": 0,
+            "max": 30,
+            "target": "mouth",
+            "path": "pathSegList 1 x"
+          },
+          {
+            "nodeType": "input",
+            "label": "Y 1",
+            "title": "Y 1",
+            "type": "propertyPath",
+            "inputType": "range",
+            "value": 0,
+            "min": -15,
+            "max": 15,
+            "target": "mouth",
+            "path": "pathSegList 1 y"
+          }
+        ]
+      }
+    ]
+  }
+]

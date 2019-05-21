@@ -1,0 +1,106 @@
+﻿html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    margin: 0;
+    overflow-y: scroll;
+}
+
+svg#e {
+    position: fixed;
+}
+
+div#fieldsets {
+    position: absolute;
+    width: 450px;
+    right: 0;
+}
+
+label {
+    display: inline-block;
+    width: 150px;
+}
+
+
+output {
+    display: none;
+}
+
+details {
+    border: 1px solid #808080;
+    padding: 10px;
+}
+
+    details:hover {
+        background: #f9f9f9;
+        border: 1px solid;
+    }
+
+        details:hover > legend {
+            color: black;
+        }
+
+    details summary {
+        color: #808080;
+        outline: none;
+        cursor: pointer;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -webkit-user-select: none;
+        user-select: none;
+    }
+
+    details div {
+        padding: 10px;
+    }
+
+        details div:hover {
+            background: #f1f1f1;
+        }
+
+    details button {
+        background: #bbb;
+        border-radius: 10px;
+        border: none;
+        height: 30px;
+        width: 30px;
+    }
+
+        details button[data-type=reset] {
+        }
+
+    details input {
+        width: 200px;
+    }
+
+input[type=color] {
+    border: none;
+    border-radius: 10px;
+    background: #bbb;
+    height: 20px;
+}
+
+input[type=range] {
+    -webkit-appearance: none !important;
+    height: 20px;
+    border-radius: 10px;
+    background: #bbb;
+}
+
+input:focus, button:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    background: #888;
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+}
+
+    input[type=range]::-webkit-slider-thumb:before {
+        background-color: yellow;
+    }

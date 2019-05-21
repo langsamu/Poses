@@ -1,0 +1,73 @@
+﻿<!-- TODO: finish curve refactoring to pathData -->
+<!-- TODO: clone svg to library on page -->
+<!-- TODO: vary mouth curve/ellipse -->
+<!-- TODO: vary mouth open/closed curve -->
+<!-- TODO: add wrinkles -->
+<!-- TODO: add ears -->
+<!-- TODO: use ref bg img -->
+<!-- TODO: introduce random jigger on paths -->
+<!-- TODO: add random on hair length -->
+<!-- TODO: add random on hair distance -->
+<!-- done TODO: save svg file -->
+<!-- done TODO: save png file -->
+<!-- done TODO: sync properties (eg leftEye.X & rightEye.X) -->
+<!-- done TODO: vary strokes -->
+<!-- done TODO: colours -->
+<!-- done TODO: add hair -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta name="viewport" content="width=device-width" />
+    <link href="css.css" rel="stylesheet" />
+    <script src="path-data-polyfill.js"></script>
+    <script src="utils.js"></script>
+    <script src="js.js"></script>
+</head>
+<body>
+    <svg id="e" height="600" width="600" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+        <style type="text/css">
+            .default {
+                fill: none;
+                stroke: #000;
+                stroke-width: 8;
+                stroke-linecap: round;
+            }
+        </style>
+        <defs>
+            <path id="hairStrand" class="default" d="M 0 -100 C 0 -50 0 50 0 100" />
+        </defs>
+        <rect id="background" width="100%" height="100%" fill="white" />
+        <g id="figure" transform="translate(300, 300) rotate(0) scale(1)">
+            <g id="hair" data-distance="15" data-quantity="13">
+                <use xlink:href="#hairStrand" transform="rotate(-90) translate(0 -100.00)"></use>
+                <use xlink:href="#hairStrand" transform="rotate(-75) translate(0 -101.91)"></use>
+                <use xlink:href="#hairStrand" transform="rotate(-60) translate(0 -107.76)"></use>
+                <use xlink:href="#hairStrand" transform="rotate(-45) translate(0 -117.67)"></use>
+                <use xlink:href="#hairStrand" transform="rotate(-30) translate(0 -130.93)"></use>
+                <use xlink:href="#hairStrand" transform="rotate(-15) translate(0 -144.09)"></use>
+                <use xlink:href="#hairStrand" transform="rotate(0)   translate(0 -150)"></use>
+                <use xlink:href="#hairStrand" transform="rotate(15) translate(0 -144.09)"></use>
+                <use xlink:href="#hairStrand" transform="rotate(30) translate(0 -130.93)"></use>
+                <use xlink:href="#hairStrand" transform="rotate(45) translate(0 -117.67)"></use>
+                <use xlink:href="#hairStrand" transform="rotate(60) translate(0 -107.76)"></use>
+                <use xlink:href="#hairStrand" transform="rotate(75) translate(0 -101.91)"></use>
+                <use xlink:href="#hairStrand" transform="rotate(90) translate(0 -100.00)"></use>
+            </g>
+            <ellipse id="head" rx="100" ry="150" fill="white" stroke="black" stroke-width="8" transform="translate(0 0) rotate(0) scale (1)" />
+            <g id="eyebrows" transform="translate(0, -80) rotate(0)">
+                <path id="leftEyebrow" class="default" d="M -15 0 C -5 0 5 0 15 0" transform="translate(-50, 0) rotate(0)" />
+                <path id="rightEyebrow" class="default" d="M -15 0 C -5 0 5 0 15 0" transform="translate(50, 0) rotate(0)" />
+            </g>
+            <g id="eyes" transform="translate(0, -30) rotate(0)">
+                <ellipse id="leftEye" rx="15" ry="15" fill="white" stroke="black" stroke-width="8" transform="translate(-50, 0) rotate(0)" />
+                <ellipse id="rightEye" rx="15" ry="15" fill="white" stroke="black" stroke-width="8" transform="translate(50, 0) rotate(0)" />
+            </g>
+            <path id="nose" class="default" d="M 0 -100 C 0 -50 0 50 0 100" transform="translate(0, 0) rotate(0)" />
+            <path id="mouth" class="default" d="M -15 0 C -5 0 5 0 15 0" transform="translate(0, 120) rotate(0)" />
+        </g>
+    </svg>
+    <div id="fieldsets"></div>
+</body>
+</html>
