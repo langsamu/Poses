@@ -41,15 +41,16 @@
         };
     }
 
-    function processInputs() {
-        loadJSON("inputs.json", function (inputs) {
-            inputs.forEach(function (input) {
-                processNode(input, fieldsets);
-            });
+    async function processInputs() {
+        var response = await fetch("inputs.json");
+        var inputs = await response.json();
 
-            attachListeners();
-            attachResetButtons();
+        inputs.forEach(function (input) {
+            processNode(input, fieldsets);
         });
+
+        attachListeners();
+        attachResetButtons();
     }
     function processNode(node, context) {
         var processingFunctions = {
@@ -173,20 +174,6 @@
                     .forEach(function (slave) { slave.value = value; slave.update(); });
             });
         });
-    }
-    function loadJSON(url, callback) {
-        var request = new XMLHttpRequest();
-        request.open('GET', url, true);
-
-        request.onreadystatechange = function () {
-            if (request.readyState === 4 && request.status === 200) {
-                var response = request.responseText;
-                var json = JSON.parse(response);
-                callback(json);
-            }
-        };
-
-        request.send();
     }
 
     var listeners = {
