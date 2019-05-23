@@ -1,4 +1,6 @@
-﻿(function () {
+﻿import Fieldset from "./Fieldset.js";
+
+(function () {
     "use strict";
 
     function getSvgElement(id) {
@@ -8,12 +10,7 @@
     function tokenize(input) {
         const element = document.createElement("div");
         element.className = input;
-        return element.classList.toArray();
-    }
-    function onResetClick() {
-        const forItem = document.getElementById(this.dataset["for"]);
-        forItem.value = forItem.defaultValue;
-        forItem.update();
+        return Array.from(element.classList);
     }
     function enumerate(input, callback) {
         tokenize(input.dataset.for)
@@ -35,100 +32,14 @@
         const inputs = await response.json();
 
         inputs.forEach(function (input) {
-            processNode(input, fieldsets);
+            new Fieldset().render(input, fieldsets);
         });
 
         attachListeners();
-        attachResetButtons();
-    }
-    function processNode(node, context) {
-        const processingFunctions = {
-            fieldset: processFieldset,
-            input: processInput
-        };
-
-        const processingFunction = processingFunctions[node.nodeType];
-        if (processingFunction) {
-            processingFunction.call(this, node, context);
-        }
-    }
-    function processFieldset(node, context) {
-        const detailsElement = document.createElement("details");
-        context.appendChild(detailsElement);
-
-        detailsElement.id = generateId(detailsElement, context);
-
-        const summaryElement = document.createElement("summary");
-        detailsElement.appendChild(summaryElement);
-
-        summaryElement.innerText = node.legend;
-
-        node.children.forEach(function (child) {
-            processNode(child, detailsElement);
-        });
-    }
-    function processInput(node, context) {
-        const divElement = document.createElement("div");
-        context.appendChild(divElement);
-
-        const id = generateId(divElement, context);
-
-        divElement.title = node.title;
-
-        const label = document.createElement("label");
-        divElement.appendChild(label);
-
-        label.htmlFor = id;
-        label.innerText = node.label;
-
-        const inputElement = document.createElement("input");
-        divElement.appendChild(inputElement);
-
-        inputElement.id = id;
-        inputElement.type = node.inputType;
-
-        inputElement.min = node.min;
-        inputElement.max = node.max;
-
-        inputElement.value = node.value;
-        inputElement.defaultValue = node.value;
-
-        switch (inputElement.type) {
-            case "range":
-                if (node.step) {
-                    inputElement.step = node.step;
-                }
-
-                break;
-        }
-
-        inputElement.dataset.type = node.type;
-        inputElement.dataset.for = node.target;
-        inputElement.dataset.transformIndex = node.transformIndex;
-        inputElement.dataset.path = node.path;
-        inputElement.dataset.pointIndex = node.pointIndex;
-        inputElement.dataset.valueIndex = node.valueIndex;
-
-        const outputElement = document.createElement("output");
-        divElement.appendChild(outputElement);
-
-        outputElement.setAttribute("for", id);
-
-        if (node.inputType !== "button") {
-            const buttonElement = document.createElement("button");
-            divElement.appendChild(buttonElement);
-
-            buttonElement.dataset.type = "reset";
-            buttonElement.dataset.for = id;
-            buttonElement.innerText = "❌";
-        }
-    }
-    function generateId(element, context) {
-        return context.id + "_" + context.childNodes.toArray().indexOf(element);
     }
 
     function attachListeners() {
-        document.querySelectorAll("[data-type]").toArray().forEach(function (item) {
+        Array.from(document.querySelectorAll("[data-type]")).forEach(function (item) {
             const listenerType = item.dataset.type;
             const listener = listeners[listenerType];
 
@@ -144,11 +55,6 @@
                     break;
 
             }
-        });
-    }
-    function attachResetButtons() {
-        document.querySelectorAll("button[data-type=reset]").toArray().forEach(function (button) {
-            button.addEventListener("click", onResetClick);
         });
     }
 
@@ -279,7 +185,7 @@
         const b = head.rx.baseVal.value;
 
         for (let j = 0; j < quantity; j++) {
-            const rot = rotationAmount.toRadians();
+            const rot = rotationAmount * Math.PI / 180;
             const translateAmount = -a * b / Math.sqrt(Math.pow(b * Math.cos(rot), 2) + Math.pow(a * Math.sin(rot), 2));
 
             const use = document.createElementNS("http://www.w3.org/2000/svg", "use");
