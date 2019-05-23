@@ -91,25 +91,23 @@
         inputElement.id = id;
         inputElement.type = node.inputType;
 
+        inputElement.min = node.min;
+        inputElement.max = node.max;
+
+        inputElement.value = node.value;
+        inputElement.defaultValue = node.value;
+
         switch (inputElement.type) {
             case "range":
-                inputElement.setAttribute("value", node.value);
-
                 if (node.step) {
                     inputElement.step = node.step;
                 }
 
                 break;
-            default:
-                inputElement.value = node.value;
-                inputElement.defaultValue = node.value;
-
         }
 
         inputElement.dataset.type = node.type;
         inputElement.dataset.for = node.target;
-        inputElement.min = node.min;
-        inputElement.max = node.max;
         inputElement.dataset.transformIndex = node.transformIndex;
         inputElement.dataset.path = node.path;
         inputElement.dataset.pointIndex = node.pointIndex;
