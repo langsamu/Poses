@@ -1,4 +1,5 @@
-﻿import Fieldset from "./Fieldset.js";
+﻿// TODO: need to click twice on controls
+import "./ControlGroup.js";
 
 (function () {
     "use strict";
@@ -32,30 +33,36 @@
         const inputs = await response.json();
 
         inputs.forEach(function (input) {
-            new Fieldset().render(input, fieldsets);
+            const f = document.createElement("x-control-group");
+            f.node = input;
+            fieldsets.appendChild(f);
         });
 
         attachListeners();
     }
 
     function attachListeners() {
-        Array.from(document.querySelectorAll("[data-type]")).forEach(function (item) {
-            const listenerType = item.dataset.type;
-            const listener = listeners[listenerType];
+        document.getElementById("fieldsets").addEventListener("click", handle);
+        document.getElementById("fieldsets").addEventListener("input", handle);
+    }
 
-            switch (item.type) {
-                case "button":
-                    item.addEventListener("click", listener);
+    function handle(e) {
+        const item = e.path[0];
 
-                    break;
+        const listenerType = item.dataset.type;
+        const listener = listeners[listenerType];
 
-                default:
-                    item.addEventListener("input", listener);
+        switch (item.type) {
+            case "button":
+                item.addEventListener("click", listener);
 
-                    break;
+                break;
 
-            }
-        });
+            default:
+                item.addEventListener("input", listener);
+
+                break;
+        }
     }
 
     const listeners = {

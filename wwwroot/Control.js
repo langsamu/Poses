@@ -1,60 +1,113 @@
-﻿class Control {
-    render(node, context) {
-        const divElement = document.createElement("div");
-        context.appendChild(divElement);
+﻿const template = document.createElement("template");
+template.innerHTML = `
+<style>
+    label {
+        display: inline-block;
+        width: 150px;
+    }
 
-        const id = '_' + Math.random().toString(36).substr(2, 9);
+    div {
+        padding: 10px;
+    }
 
-        divElement.title = node.title;
+        div:hover {
+            background: #f1f1f1;
+        }
 
-        const label = document.createElement("label");
-        divElement.appendChild(label);
+    button {
+        background: #bbb;
+        border-radius: 10px;
+        border: none;
+        height: 30px;
+        width: 30px;
+    }
 
-        label.htmlFor = id;
-        label.innerText = node.label;
+    input {
+        width: 180px;
+    }
 
-        const inputElement = document.createElement("input");
-        divElement.appendChild(inputElement);
+    input[type=color] {
+        border: none;
+        border-radius: 10px;
+        background: #bbb;
+        height: 20px;
+    }
 
-        inputElement.id = id;
-        inputElement.type = node.inputType;
-        inputElement.min = node.min;
-        inputElement.max = node.max;
-        inputElement.value = node.value;
-        inputElement.defaultValue = node.value;
+    input[type=range] {
+        -webkit-appearance: none !important;
+        height: 20px;
+        border-radius: 10px;
+        background: #bbb;
+    }
 
-        switch (inputElement.type) {
+    input:focus, button:focus {
+        outline: none;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+        -webkit-appearance: none !important;
+        background: #888;
+        height: 40px;
+        width: 40px;
+        border-radius: 20px;
+    }
+
+        input[type=range]::-webkit-slider-thumb:before {
+            background-color: yellow;
+        }
+</style>
+<div>
+    <label for="i"></label>
+    <input id="i"></input>
+</div>
+`;
+
+class Control extends HTMLElement {
+    constructor() {
+        super();
+
+        this.attachShadow({ mode: 'open' });
+        this.shadowRoot.appendChild(template.content.cloneNode(true));
+    }
+
+    set node(value) {
+        this.shadowRoot.querySelector("div").title = value.title;
+        this.shadowRoot.querySelector("label").innerText = value.label;
+
+        const input = this.shadowRoot.querySelector("input");
+        input.type = value.inputType;
+        input.min = value.min;
+        input.max = value.max;
+        input.value = value.value;
+        input.defaultValue = value.value;
+
+        switch (input.type) {
             case "range":
-                if (node.step) {
-                    inputElement.step = node.step;
+                if (value.step) {
+                    input.step = value.step;
                 }
+
                 break;
         }
 
-        inputElement.dataset.type = node.type;
-        inputElement.dataset.for = node.target;
-        inputElement.dataset.transformIndex = node.transformIndex;
-        inputElement.dataset.path = node.path;
-        inputElement.dataset.pointIndex = node.pointIndex;
-        inputElement.dataset.valueIndex = node.valueIndex;
+        input.dataset.type = value.type;
+        input.dataset.for = value.target;
+        input.dataset.transformIndex = value.transformIndex;
+        input.dataset.path = value.path;
+        input.dataset.pointIndex = value.pointIndex;
+        input.dataset.valueIndex = value.valueIndex;
 
-        const outputElement = document.createElement("output");
-        divElement.appendChild(outputElement);
-
-        outputElement.setAttribute("for", id);
-
-        if (node.inputType !== "button") {
+        if (value.inputType !== "button") {
             const buttonElement = document.createElement("button");
-            divElement.appendChild(buttonElement);
+            this.shadowRoot.querySelector("div").appendChild(buttonElement);
 
             buttonElement.dataset.type = "reset";
-            buttonElement.dataset.for = id;
             buttonElement.innerText = "❌";
 
             buttonElement.addEventListener("click", function () {
-                inputElement.value = inputElement.defaultValue;
+                input.value = input.defaultValue;
 
-                inputElement.dispatchEvent(new Event("input", {
+                input.dispatchEvent(new Event("input", {
                     bubbles: true
                 }));
             });
@@ -62,4 +115,4 @@
     }
 }
 
-export default Control;
+customElements.define("x-control", Control);
