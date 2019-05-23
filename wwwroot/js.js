@@ -15,13 +15,6 @@
         forItem.value = forItem.defaultValue;
         forItem.update();
     }
-    function updateOutput(e) {
-        if (e) {
-            var input = e.target;
-            var output = document.querySelector("output[for=" + input.id + "]");
-            output.value = input.value;
-        }
-    }
     function enumerate(input, callback) {
         var svgElementIds = tokenize(input.dataset.for);
 
@@ -162,17 +155,6 @@
     function attachResetButtons() {
         document.querySelectorAll("button[data-type=reset]").toArray().forEach(function (button) {
             button.addEventListener("click", onResetClick);
-        });
-    }
-    function attachSyncButtons() {
-        document.querySelectorAll("button[data-type=sync]").toArray().forEach(function (button) {
-            button.addEventListener("click", function () {
-                var value = document.getElementById(this.dataset["for"]).value;
-
-                tokenize(this.dataset["slaves"])
-                    .map(function (slaveName) { return document.getElementById(slaveName); })
-                    .forEach(function (slave) { slave.value = value; slave.update(); });
-            });
         });
     }
 
@@ -317,8 +299,5 @@
 
     window.addEventListener("load", function () {
         processInputs();
-
-        //attachSyncButtons();
-        //window.addEventListener("input", updateOutput);
     });
 }());
