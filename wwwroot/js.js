@@ -1,4 +1,6 @@
 ﻿(function () {
+    "use strict";
+
     function getSvgElement(id) {
         var svg = e;
         return svg.getElementById(id);
@@ -167,7 +169,7 @@
                 var value = document.getElementById(this.dataset["for"]).value;
 
                 tokenize(this.dataset["slaves"])
-                    .map(function (slaveName) { return document.getElementById(slaveName) })
+                    .map(function (slaveName) { return document.getElementById(slaveName); })
                     .forEach(function (slave) { slave.value = value; slave.update(); });
             });
         });
@@ -177,7 +179,7 @@
         request.open('GET', url, true);
 
         request.onreadystatechange = function () {
-            if (request.readyState == 4 && request.status == "200") {
+            if (request.readyState === 4 && request.status === 200) {
                 var response = request.responseText;
                 var json = JSON.parse(response);
                 callback(json);
@@ -295,7 +297,7 @@
 
             recreateHair();
         }
-    }
+    };
 
     function recreateHair() {
         var svg = e;
@@ -305,7 +307,7 @@
         var quantity = parseInt(hair.getAttribute("data-quantity"));
 
         var uses = hair.querySelectorAll("use");
-        for (var i = uses.length - 1 ; i > -1 ; i--) {
+        for (var i = uses.length - 1; i > -1; i--) {
             hair.removeChild(uses[i]);
         }
 
@@ -313,7 +315,7 @@
         var a = head.ry.baseVal.value;
         var b = head.rx.baseVal.value;
 
-        for (var i = 0; i < quantity; i++) {
+        for (var j = 0; j < quantity; j++) {
             var rot = rotationAmount.toRadians();
             var translateAmount = -a * b / Math.sqrt(Math.pow(b * Math.cos(rot), 2) + Math.pow(a * Math.sin(rot), 2));
 
