@@ -68,6 +68,7 @@ class Control extends HTMLElement {
         const shadow = this.attachShadow({ mode: 'open' });
         shadow.appendChild(template.content.cloneNode(true));
         shadow.addEventListener("input", process.bind(this));
+        shadow.addEventListener("click", process.bind(this));
     }
 
     set instance(value) {
@@ -119,21 +120,54 @@ class Control extends HTMLElement {
         }
     }
 
+    enumerate(input, callback) {
+        this.query(input).forEach(callback.bind(input));
+    }
+
+    query(input) {
+        return Array.from(document.getElementById("e").querySelectorAll(input.dataset.for));
+    }
+
     static parse(node) {
         switch (node.type) {
             case "scaleY":
                 return "poses-scale-y";
 
-            default:
-                return "poses-control";
+            case "scaleX":
+                return "poses-scale-x";
+
+            case "rotate":
+                return "poses-rotate";
+
+            case "propertyPath":
+                return "poses-property-path";
+
+            case "pathData":
+                return "poses-path-data";
+
+            case "saveSvg":
+                return "poses-save-svg";
+
+            case "savePng":
+                return "poses-save-png";
+
+            case "distance":
+                return "poses-distance";
+
+            case "rotateMirrored":
+                return "poses-rotate-mirrored";
+
+            case "hairQuantity":
+                return "poses-hair-quantity";
+
+            case "hairDistance":
+                return "poses-hair-distance";
         }
     }
 }
 
-function process() {
-    this._instance.process();
+function process(e) {
+    this._instance.process(e);
 }
-
-customElements.define("poses-control", Control);
 
 export default Control;

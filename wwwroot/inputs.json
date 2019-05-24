@@ -93,7 +93,7 @@
         "nodeType": "input",
         "label": "🔘",
         "title": "Stroke width",
-        "type": "hairProperty",
+        "type": "propertyPath",
         "inputType": "range",
         "value": 8,
         "min": 0,
@@ -105,7 +105,7 @@
         "nodeType": "input",
         "label": "🔘",
         "title": "Stroke color",
-        "type": "hairProperty",
+        "type": "propertyPath",
         "inputType": "color",
         "value": "#000000",
         "target": "#hairStrand",
@@ -402,7 +402,7 @@
         "type": "propertyPath",
         "inputType": "color",
         "value": "#000000",
-        "target": "#leftEyebrow, #rightEyebrow",
+        "target": "#eyebrow",
         "path": "style stroke"
       },
       {
@@ -414,7 +414,7 @@
         "value": 8,
         "min": 0,
         "max": 40,
-        "target": "#leftEyebrow, #rightEyebrow",
+        "target": "#eyebrow",
         "path": "style strokeWidth"
       },
       {
@@ -430,7 +430,7 @@
             "value": -15,
             "min": -30,
             "max": 0,
-            "target": "#leftEyebrow, #rightEyebrow",
+            "target": "#eyebrow",
             "pointIndex": 0,
             "valueIndex": 0
           },
@@ -443,7 +443,7 @@
             "value": 0,
             "min": -15,
             "max": 15,
-            "target": "#leftEyebrow, #rightEyebrow",
+            "target": "#eyebrow",
             "pointIndex": 0,
             "valueIndex": 1
           },
@@ -456,7 +456,7 @@
             "value": -5,
             "min": -20,
             "max": 10,
-            "target": "#leftEyebrow, #rightEyebrow",
+            "target": "#eyebrow",
             "pointIndex": 1,
             "valueIndex": 0
           },
@@ -469,7 +469,7 @@
             "value": 0,
             "min": -15,
             "max": 15,
-            "target": "#leftEyebrow, #rightEyebrow",
+            "target": "#eyebrow",
             "pointIndex": 1,
             "valueIndex": 1
           },
@@ -482,7 +482,7 @@
             "value": 5,
             "min": -10,
             "max": 20,
-            "target": "#leftEyebrow, #rightEyebrow",
+            "target": "#eyebrow",
             "pointIndex": 1,
             "valueIndex": 2
           },
@@ -495,7 +495,7 @@
             "value": 0,
             "min": -15,
             "max": 15,
-            "target": "#leftEyebrow, #rightEyebrow",
+            "target": "#eyebrow",
             "pointIndex": 1,
             "valueIndex": 3
           },
@@ -508,7 +508,7 @@
             "value": 15,
             "min": 0,
             "max": 30,
-            "target": "#leftEyebrow, #rightEyebrow",
+            "target": "#eyebrow",
             "pointIndex": 1,
             "valueIndex": 4
           },
@@ -521,7 +521,7 @@
             "value": 0,
             "min": -15,
             "max": 15,
-            "target": "#leftEyebrow, #rightEyebrow",
+            "target": "#eyebrow",
             "pointIndex": 1,
             "valueIndex": 5
           }
@@ -577,7 +577,7 @@
         "min": 0,
         "max": 60,
         "type": "propertyPath",
-        "target": "#leftEye, #rightEye",
+        "target": "#eye",
         "path": "rx baseVal value"
       },
       {
@@ -589,7 +589,7 @@
         "min": 0,
         "max": 60,
         "type": "propertyPath",
-        "target": "#leftEye, #rightEye",
+        "target": "#eye",
         "path": "ry baseVal value"
       },
       {
@@ -634,7 +634,7 @@
         "type": "propertyPath",
         "inputType": "color",
         "value": "#ffffff",
-        "target": "#leftEye, #rightEye",
+        "target": "#eye",
         "path": "style fill"
       },
       {
@@ -644,7 +644,7 @@
         "type": "propertyPath",
         "inputType": "color",
         "value": "#000000",
-        "target": "#leftEye, #rightEye",
+        "target": "#eye",
         "path": "style stroke"
       },
       {
@@ -656,7 +656,7 @@
         "value": 8,
         "min": 0,
         "max": 40,
-        "target": "#leftEye, #rightEye",
+        "target": "#eye",
         "path": "style strokeWidth"
       }
     ]
@@ -905,97 +905,105 @@
             "nodeType": "input",
             "label": "X 0",
             "title": "X 0",
-            "type": "propertyPath",
+            "type": "pathData",
             "inputType": "range",
             "value": -15,
             "min": -30,
             "max": 0,
             "target": "#mouth",
-            "path": "pathSegList 0 x"
+            "pointIndex": 0,
+            "valueIndex": 0
           },
           {
             "nodeType": "input",
             "label": "Y 0",
             "title": "Y 0",
-            "type": "propertyPath",
+            "type": "pathData",
             "inputType": "range",
             "value": 0,
             "min": -15,
             "max": 15,
             "target": "#mouth",
-            "path": "pathSegList 0 y"
+            "pointIndex": 0,
+            "valueIndex": 1
           },
           {
             "nodeType": "input",
             "label": "X1 1",
             "title": "X1 1",
-            "type": "propertyPath",
+            "type": "pathData",
             "inputType": "range",
             "value": -5,
             "min": -20,
             "max": 10,
             "target": "#mouth",
-            "path": "pathSegList 1 x1"
+            "pointIndex": 1,
+            "valueIndex": 0
           },
           {
             "nodeType": "input",
             "label": "Y1 1",
             "title": "Y1 1",
-            "type": "propertyPath",
+            "type": "pathData",
             "inputType": "range",
             "value": 0,
             "min": -15,
             "max": 15,
             "target": "#mouth",
-            "path": "pathSegList 1 y1"
+            "pointIndex": 1,
+            "valueIndex": 1
           },
           {
             "nodeType": "input",
             "label": "X2 1",
             "title": "X2 1",
-            "type": "propertyPath",
+            "type": "pathData",
             "inputType": "range",
             "value": 5,
             "min": -10,
             "max": 20,
             "target": "#mouth",
-            "path": "pathSegList 1 x2"
+            "pointIndex": 1,
+            "valueIndex": 2
           },
           {
             "nodeType": "input",
             "label": "Y2 1",
             "title": "Y2 1",
-            "type": "propertyPath",
+            "type": "pathData",
             "inputType": "range",
             "value": 0,
             "min": -15,
             "max": 15,
             "target": "#mouth",
-            "path": "pathSegList 1 y2"
+            "pointIndex": 1,
+            "valueIndex": 3
           },
           {
             "nodeType": "input",
             "label": "X 1",
             "title": "X 1",
-            "type": "propertyPath",
+            "type": "pathData",
             "inputType": "range",
             "value": 15,
             "min": 0,
             "max": 30,
             "target": "#mouth",
-            "path": "pathSegList 1 x"
+            "pointIndex": 1,
+            "valueIndex": 4
           },
           {
             "nodeType": "input",
             "label": "Y 1",
             "title": "Y 1",
-            "type": "propertyPath",
+            "type": "pathData",
             "inputType": "range",
             "value": 0,
             "min": -15,
             "max": 15,
             "target": "#mouth",
-            "path": "pathSegList 1 y"
+            "pointIndex": 1,
+            "valueIndex": 5
           }
         ]
       }

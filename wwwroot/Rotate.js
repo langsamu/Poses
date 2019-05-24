@@ -1,6 +1,6 @@
 ﻿import Control from "./Control.js";
 
-class ScaleY extends Control {
+class Rotate extends Control {
     constructor() {
         super();
         super.instance = this;
@@ -10,10 +10,11 @@ class ScaleY extends Control {
         var input = e.path[0];
 
         super.enumerate(input, function (svgElement) {
-            const transform = svgElement.transform.baseVal[2];
-            transform.setScale(transform.matrix.a, input.value);
+            const transformIndex = input.dataset.transformIndex;
+
+            svgElement.transform.baseVal[transformIndex].setRotate(input.value, 0, 0);
         });
     }
 }
 
-customElements.define("poses-scale-y", ScaleY);
+customElements.define("poses-rotate", Rotate);
