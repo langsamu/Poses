@@ -112,7 +112,8 @@ class Control extends HTMLElement {
                 input.value = input.defaultValue;
 
                 input.dispatchEvent(new Event("input", {
-                    bubbles: true
+                    bubbles: true,
+                    composed: true
                 }));
             });
         }

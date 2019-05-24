@@ -30,7 +30,7 @@
         "label": "🔄",
         "title": "Rotate",
         "type": "rotate",
-        "target": "figure",
+        "target": "#figure",
         "transformIndex": 1,
         "inputType": "range",
         "value": 0,
@@ -42,7 +42,7 @@
         "label": "Scale X",
         "title": "Scale X",
         "type": "scaleX",
-        "target": "figure",
+        "target": "#figure",
         "inputType": "range",
         "value": 1,
         "min": 0,
@@ -54,7 +54,7 @@
         "label": "Scale Y",
         "title": "Scale Y",
         "type": "scaleY",
-        "target": "figure",
+        "target": "#figure",
         "inputType": "range",
         "value": 1,
         "min": 0,
@@ -76,7 +76,7 @@
         "value": 13,
         "min": 0,
         "max": 100,
-        "target": "hair"
+        "target": "#hair"
       },
       {
         "nodeType": "input",
@@ -87,7 +87,7 @@
         "value": 15,
         "min": 0,
         "max": 100,
-        "target": "hair"
+        "target": "#hair"
       },
       {
         "nodeType": "input",
@@ -98,7 +98,7 @@
         "value": 8,
         "min": 0,
         "max": 100,
-        "target": "hairStrand",
+        "target": "#hairStrand",
         "path": "style strokeWidth"
       },
       {
@@ -108,7 +108,7 @@
         "type": "hairProperty",
         "inputType": "color",
         "value": "#000000",
-        "target": "hairStrand",
+        "target": "#hairStrand",
         "path": "style stroke"
       },
       {
@@ -124,7 +124,7 @@
             "value": 0,
             "min": -100,
             "max": 100,
-            "target": "hairStrand",
+            "target": "#hairStrand",
             "pointIndex": 0,
             "valueIndex": 0
           },
@@ -137,7 +137,7 @@
             "value": -100,
             "min": -200,
             "max": 0,
-            "target": "hairStrand",
+            "target": "#hairStrand",
             "pointIndex": 0,
             "valueIndex": 1
           },
@@ -150,7 +150,7 @@
             "value": 0,
             "min": -100,
             "max": 100,
-            "target": "hairStrand",
+            "target": "#hairStrand",
             "pointIndex": 1,
             "valueIndex": 0
           },
@@ -163,7 +163,7 @@
             "value": -50,
             "min": -150,
             "max": 50,
-            "target": "hairStrand",
+            "target": "#hairStrand",
             "pointIndex": 1,
             "valueIndex": 1
           },
@@ -176,7 +176,7 @@
             "value": 0,
             "min": -100,
             "max": 100,
-            "target": "hairStrand",
+            "target": "#hairStrand",
             "pointIndex": 1,
             "valueIndex": 2
           },
@@ -189,7 +189,7 @@
             "value": 50,
             "min": -50,
             "max": 150,
-            "target": "hairStrand",
+            "target": "#hairStrand",
             "pointIndex": 1,
             "valueIndex": 3
           },
@@ -202,7 +202,7 @@
             "value": 0,
             "min": -100,
             "max": 100,
-            "target": "hairStrand",
+            "target": "#hairStrand",
             "pointIndex": 1,
             "valueIndex": 4
           },
@@ -215,7 +215,7 @@
             "value": 100,
             "max": 200,
             "min": 0,
-            "target": "hairStrand",
+            "target": "#hairStrand",
             "pointIndex": 1,
             "valueIndex": 5
           }
@@ -232,7 +232,7 @@
         "label": "🔄",
         "title": "Rotate",
         "type": "rotate",
-        "target": "head",
+        "target": "#head",
         "transformIndex": 1,
         "inputType": "range",
         "value": 0,
@@ -248,7 +248,7 @@
         "value": 0,
         "min": -100,
         "max": 100,
-        "target": "head",
+        "target": "#head",
         "path": "transform baseVal 0 matrix e"
       },
       {
@@ -260,7 +260,7 @@
         "value": 0,
         "min": -100,
         "max": 100,
-        "target": "head",
+        "target": "#head",
         "path": "transform baseVal 0 matrix f"
       },
       {
@@ -272,7 +272,7 @@
         "value": 100,
         "min": 0,
         "max": 200,
-        "target": "head",
+        "target": "#head",
         "path": "rx baseVal value"
       },
       {
@@ -284,7 +284,7 @@
         "value": 150,
         "min": 50,
         "max": 250,
-        "target": "head",
+        "target": "#head",
         "path": "ry baseVal value"
       },
       {
@@ -294,7 +294,7 @@
         "type": "propertyPath",
         "inputType": "color",
         "value": "#ffffff",
-        "target": "head",
+        "target": "#head",
         "path": "style fill"
       },
       {
@@ -304,7 +304,7 @@
         "type": "propertyPath",
         "inputType": "color",
         "value": "#000000",
-        "target": "head",
+        "target": "#head",
         "path": "style stroke"
       },
       {
@@ -316,7 +316,7 @@
         "value": 8,
         "min": 0,
         "max": 40,
-        "target": "head",
+        "target": "#head",
         "path": "style strokeWidth"
       }
     ]
@@ -334,7 +334,7 @@
         "value": 0,
         "min": -100,
         "max": 100,
-        "target": "eyebrows",
+        "target": "#eyebrows",
         "path": "transform baseVal 0 matrix e"
       },
       {
@@ -346,7 +346,7 @@
         "value": -80,
         "min": -200,
         "max": 10,
-        "target": "eyebrows",
+        "target": "#eyebrows",
         "path": "transform baseVal 0 matrix f"
       },
       {
@@ -358,14 +358,14 @@
         "value": 50,
         "min": 0,
         "max": 100,
-        "target": "leftEyebrow rightEyebrow"
+        "target": "#leftEyebrow, #rightEyebrow"
       },
       {
         "nodeType": "input",
         "label": "🔄 each",
         "title": "Rotate",
         "type": "rotate",
-        "target": "leftEyebrow rightEyebrow",
+        "target": "#leftEyebrow, #rightEyebrow",
         "transformIndex": 1,
         "inputType": "range",
         "value": 0,
@@ -377,7 +377,7 @@
         "label": "🔄 mirrored",
         "title": "Rotate",
         "type": "rotateMirrored",
-        "target": "leftEyebrow rightEyebrow",
+        "target": "#leftEyebrow, #rightEyebrow",
         "inputType": "range",
         "value": 0,
         "min": -50,
@@ -388,7 +388,7 @@
         "label": "🔄 both",
         "title": "Rotate",
         "type": "rotate",
-        "target": "eyebrows",
+        "target": "#eyebrows",
         "transformIndex": 1,
         "inputType": "range",
         "value": 0,
@@ -402,7 +402,7 @@
         "type": "propertyPath",
         "inputType": "color",
         "value": "#000000",
-        "target": "leftEyebrow rightEyebrow",
+        "target": "#leftEyebrow, #rightEyebrow",
         "path": "style stroke"
       },
       {
@@ -414,7 +414,7 @@
         "value": 8,
         "min": 0,
         "max": 40,
-        "target": "leftEyebrow rightEyebrow",
+        "target": "#leftEyebrow, #rightEyebrow",
         "path": "style strokeWidth"
       },
       {
@@ -430,7 +430,7 @@
             "value": -15,
             "min": -30,
             "max": 0,
-            "target": "leftEyebrow rightEyebrow",
+            "target": "#leftEyebrow, #rightEyebrow",
             "pointIndex": 0,
             "valueIndex": 0
           },
@@ -443,7 +443,7 @@
             "value": 0,
             "min": -15,
             "max": 15,
-            "target": "leftEyebrow rightEyebrow",
+            "target": "#leftEyebrow, #rightEyebrow",
             "pointIndex": 0,
             "valueIndex": 1
           },
@@ -456,7 +456,7 @@
             "value": -5,
             "min": -20,
             "max": 10,
-            "target": "leftEyebrow rightEyebrow",
+            "target": "#leftEyebrow, #rightEyebrow",
             "pointIndex": 1,
             "valueIndex": 0
           },
@@ -469,7 +469,7 @@
             "value": 0,
             "min": -15,
             "max": 15,
-            "target": "leftEyebrow rightEyebrow",
+            "target": "#leftEyebrow, #rightEyebrow",
             "pointIndex": 1,
             "valueIndex": 1
           },
@@ -482,7 +482,7 @@
             "value": 5,
             "min": -10,
             "max": 20,
-            "target": "leftEyebrow rightEyebrow",
+            "target": "#leftEyebrow, #rightEyebrow",
             "pointIndex": 1,
             "valueIndex": 2
           },
@@ -495,7 +495,7 @@
             "value": 0,
             "min": -15,
             "max": 15,
-            "target": "leftEyebrow rightEyebrow",
+            "target": "#leftEyebrow, #rightEyebrow",
             "pointIndex": 1,
             "valueIndex": 3
           },
@@ -508,7 +508,7 @@
             "value": 15,
             "min": 0,
             "max": 30,
-            "target": "leftEyebrow rightEyebrow",
+            "target": "#leftEyebrow, #rightEyebrow",
             "pointIndex": 1,
             "valueIndex": 4
           },
@@ -521,7 +521,7 @@
             "value": 0,
             "min": -15,
             "max": 15,
-            "target": "leftEyebrow rightEyebrow",
+            "target": "#leftEyebrow, #rightEyebrow",
             "pointIndex": 1,
             "valueIndex": 5
           }
@@ -542,7 +542,7 @@
         "value": 0,
         "min": -100,
         "max": 100,
-        "target": "eyes",
+        "target": "#eyes",
         "path": "transform baseVal 0 matrix e"
       },
       {
@@ -554,7 +554,7 @@
         "value": -30,
         "min": -200,
         "max": 100,
-        "target": "eyes",
+        "target": "#eyes",
         "path": "transform baseVal 0 matrix f"
       },
       {
@@ -566,7 +566,7 @@
         "value": 50,
         "min": 0,
         "max": 100,
-        "target": "leftEye rightEye"
+        "target": "#leftEye, #rightEye"
       },
       {
         "nodeType": "input",
@@ -577,7 +577,7 @@
         "min": 0,
         "max": 60,
         "type": "propertyPath",
-        "target": "leftEye rightEye",
+        "target": "#leftEye, #rightEye",
         "path": "rx baseVal value"
       },
       {
@@ -589,7 +589,7 @@
         "min": 0,
         "max": 60,
         "type": "propertyPath",
-        "target": "leftEye rightEye",
+        "target": "#leftEye, #rightEye",
         "path": "ry baseVal value"
       },
       {
@@ -597,7 +597,7 @@
         "label": "🔄 each",
         "title": "Rotate",
         "type": "rotate",
-        "target": "leftEye rightEye",
+        "target": "#leftEye, #rightEye",
         "transformIndex": 1,
         "inputType": "range",
         "value": 0,
@@ -609,7 +609,7 @@
         "label": "🔄 mirrored",
         "title": "Rotate",
         "type": "rotateMirrored",
-        "target": "leftEye rightEye",
+        "target": "#leftEye, #rightEye",
         "inputType": "range",
         "value": 0,
         "min": -50,
@@ -620,7 +620,7 @@
         "label": "🔄 both",
         "title": "Rotate",
         "type": "rotate",
-        "target": "eyes",
+        "target": "#eyes",
         "transformIndex": 1,
         "inputType": "range",
         "value": 0,
@@ -634,7 +634,7 @@
         "type": "propertyPath",
         "inputType": "color",
         "value": "#ffffff",
-        "target": "leftEye rightEye",
+        "target": "#leftEye, #rightEye",
         "path": "style fill"
       },
       {
@@ -644,7 +644,7 @@
         "type": "propertyPath",
         "inputType": "color",
         "value": "#000000",
-        "target": "leftEye rightEye",
+        "target": "#leftEye, #rightEye",
         "path": "style stroke"
       },
       {
@@ -656,7 +656,7 @@
         "value": 8,
         "min": 0,
         "max": 40,
-        "target": "leftEye rightEye",
+        "target": "#leftEye, #rightEye",
         "path": "style strokeWidth"
       }
     ]
@@ -670,7 +670,7 @@
         "label": "🔄",
         "title": "Rotate",
         "type": "rotate",
-        "target": "nose",
+        "target": "#nose",
         "transformIndex": 1,
         "inputType": "range",
         "value": 0,
@@ -686,7 +686,7 @@
         "value": 0,
         "min": -100,
         "max": 100,
-        "target": "nose",
+        "target": "#nose",
         "path": "transform baseVal 0 matrix e"
       },
       {
@@ -698,7 +698,7 @@
         "value": 0,
         "min": -100,
         "max": 100,
-        "target": "nose",
+        "target": "#nose",
         "path": "transform baseVal 0 matrix f"
       },
       {
@@ -708,7 +708,7 @@
         "type": "propertyPath",
         "inputType": "color",
         "value": "#000000",
-        "target": "nose",
+        "target": "#nose",
         "path": "style stroke"
       },
       {
@@ -720,7 +720,7 @@
         "value": 8,
         "min": 0,
         "max": 40,
-        "target": "nose",
+        "target": "#nose",
         "path": "style strokeWidth"
       },
       {
@@ -736,7 +736,7 @@
             "value": 0,
             "min": -15,
             "max": 15,
-            "target": "nose",
+            "target": "#nose",
             "pointIndex": 0,
             "valueIndex": 0
           },
@@ -749,7 +749,7 @@
             "value": -100,
             "min": -115,
             "max": -85,
-            "target": "nose",
+            "target": "#nose",
             "pointIndex": 0,
             "valueIndex": 1
           },
@@ -762,7 +762,7 @@
             "value": 0,
             "min": -15,
             "max": 15,
-            "target": "nose",
+            "target": "#nose",
             "pointIndex": 1,
             "valueIndex": 0
           },
@@ -775,7 +775,7 @@
             "value": -50,
             "min": -65,
             "max": -45,
-            "target": "nose",
+            "target": "#nose",
             "pointIndex": 1,
             "valueIndex": 1
           },
@@ -788,7 +788,7 @@
             "value": 0,
             "min": -15,
             "max": 15,
-            "target": "nose",
+            "target": "#nose",
             "pointIndex": 1,
             "valueIndex": 2
           },
@@ -801,7 +801,7 @@
             "value": 50,
             "min": 45,
             "max": 65,
-            "target": "nose",
+            "target": "#nose",
             "pointIndex": 1,
             "valueIndex": 3
           },
@@ -814,7 +814,7 @@
             "value": 0,
             "min": -15,
             "max": 15,
-            "target": "nose",
+            "target": "#nose",
             "pointIndex": 1,
             "valueIndex": 4
           },
@@ -827,7 +827,7 @@
             "value": 100,
             "min": 85,
             "max": 115,
-            "target": "nose",
+            "target": "#nose",
             "pointIndex": 1,
             "valueIndex": 5
           }
@@ -844,7 +844,7 @@
         "label": "🔄",
         "title": "Rotate",
         "type": "rotate",
-        "target": "mouth",
+        "target": "#mouth",
         "transformIndex": 1,
         "inputType": "range",
         "value": 0,
@@ -860,7 +860,7 @@
         "value": 0,
         "min": -100,
         "max": 100,
-        "target": "mouth",
+        "target": "#mouth",
         "path": "transform baseVal 0 matrix e"
       },
       {
@@ -872,7 +872,7 @@
         "value": 120,
         "min": 20,
         "max": 220,
-        "target": "mouth",
+        "target": "#mouth",
         "path": "transform baseVal 0 matrix f"
       },
       {
@@ -882,7 +882,7 @@
         "type": "propertyPath",
         "inputType": "color",
         "value": "#000000",
-        "target": "mouth",
+        "target": "#mouth",
         "path": "style stroke"
       },
       {
@@ -894,7 +894,7 @@
         "value": 8,
         "min": 0,
         "max": 40,
-        "target": "mouth",
+        "target": "#mouth",
         "path": "style strokeWidth"
       },
       {
@@ -910,7 +910,7 @@
             "value": -15,
             "min": -30,
             "max": 0,
-            "target": "mouth",
+            "target": "#mouth",
             "path": "pathSegList 0 x"
           },
           {
@@ -922,7 +922,7 @@
             "value": 0,
             "min": -15,
             "max": 15,
-            "target": "mouth",
+            "target": "#mouth",
             "path": "pathSegList 0 y"
           },
           {
@@ -934,7 +934,7 @@
             "value": -5,
             "min": -20,
             "max": 10,
-            "target": "mouth",
+            "target": "#mouth",
             "path": "pathSegList 1 x1"
           },
           {
@@ -946,7 +946,7 @@
             "value": 0,
             "min": -15,
             "max": 15,
-            "target": "mouth",
+            "target": "#mouth",
             "path": "pathSegList 1 y1"
           },
           {
@@ -958,7 +958,7 @@
             "value": 5,
             "min": -10,
             "max": 20,
-            "target": "mouth",
+            "target": "#mouth",
             "path": "pathSegList 1 x2"
           },
           {
@@ -970,7 +970,7 @@
             "value": 0,
             "min": -15,
             "max": 15,
-            "target": "mouth",
+            "target": "#mouth",
             "path": "pathSegList 1 y2"
           },
           {
@@ -982,7 +982,7 @@
             "value": 15,
             "min": 0,
             "max": 30,
-            "target": "mouth",
+            "target": "#mouth",
             "path": "pathSegList 1 x"
           },
           {
@@ -994,7 +994,7 @@
             "value": 0,
             "min": -15,
             "max": 15,
-            "target": "mouth",
+            "target": "#mouth",
             "path": "pathSegList 1 y"
           }
         ]

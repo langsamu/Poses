@@ -6,19 +6,16 @@ import "./ScaleY.js";
 (function () {
     "use strict";
 
-    function getSvgElement(id) {
-        const svg = document.getElementById("e");
-        return svg.getElementById(id);
+    function enumerate(input, callback) {
+        query(input).forEach(callback.bind(input));
     }
     function tokenize(input) {
         const element = document.createElement("div");
         element.className = input;
         return Array.from(element.classList);
     }
-    function enumerate(input, callback) {
-        tokenize(input.dataset.for)
-            .map(getSvgElement)
-            .forEach(callback.bind(input));
+   function query(input) {
+        return Array.from(document.getElementById("e").querySelectorAll(input.dataset.for));
     }
     function getPathNavigatorReduceFunction(value) {
         return function (previousValue, currentValue, index, array) {
@@ -137,15 +134,13 @@ import "./ScaleY.js";
             });
         },
         distance: function () {
-            const svgElements = tokenize(this.dataset.for)
-                .map(getSvgElement);
+            const svgElements = query(this);
 
             svgElements[0].transform.baseVal[0].matrix.e = -this.valueAsNumber;
             svgElements[1].transform.baseVal[0].matrix.e = this.valueAsNumber;
         },
         rotateMirrored: function () {
-            const svgElements = tokenize(this.dataset.for)
-                .map(getSvgElement);
+            const svgElements = query(this);
 
             svgElements[0].transform.baseVal[1].setRotate(this.valueAsNumber, 0, 0);
             svgElements[1].transform.baseVal[1].setRotate(-this.valueAsNumber, 0, 0);
