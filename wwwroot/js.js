@@ -35,7 +35,7 @@ import "./ScaleY.js";
         const inputs = await response.json();
 
         inputs.forEach(function (input) {
-            const f = document.createElement("x-control-group");
+            const f = document.createElement("poses-control-group");
             f.node = input;
             fieldsets.appendChild(f);
         });

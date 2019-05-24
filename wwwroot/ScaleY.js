@@ -11,4 +11,4 @@ class ScaleY extends Control {
     }
 }
 
-customElements.define("x-scale-y", ScaleY);
+customElements.define("poses-scale-y", ScaleY);

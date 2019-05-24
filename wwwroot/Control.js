@@ -121,10 +121,10 @@ class Control extends HTMLElement {
     static parse(node) {
         switch (node.type) {
             case "scaleY":
-                return "x-scale-y";
+                return "poses-scale-y";
 
             default:
-                return "x-control";
+                return "poses-control";
         }
     }
 }
@@ -133,6 +133,6 @@ function process() {
     this._instance.process();
 }
 
-customElements.define("x-control", Control);
+customElements.define("poses-control", Control);
 
 export default Control;

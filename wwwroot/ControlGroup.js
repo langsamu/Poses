@@ -43,7 +43,7 @@ class ControlGroup extends HTMLElement {
         value.children.forEach(child => {
             switch (child.nodeType) {
                 case "fieldset":
-                    const controlGroup = document.createElement("x-control-group");
+                    const controlGroup = document.createElement("poses-control-group");
                     controlGroup.node = child;
 
                     div.appendChild(controlGroup);
@@ -62,4 +62,4 @@ class ControlGroup extends HTMLElement {
     }
 }
 
-customElements.define("x-control-group", ControlGroup);
+customElements.define("poses-control-group", ControlGroup);
