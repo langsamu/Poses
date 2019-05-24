@@ -1,5 +1,7 @@
 ﻿// TODO: need to click twice on controls
 import "./ControlGroup.js";
+import "./Control.js";
+import "./ScaleY.js";
 
 (function () {
     "use strict";
@@ -52,16 +54,8 @@ import "./ControlGroup.js";
         const listenerType = item.dataset.type;
         const listener = listeners[listenerType];
 
-        switch (item.type) {
-            case "button":
-                item.addEventListener("click", listener);
-
-                break;
-
-            default:
-                item.addEventListener("input", listener);
-
-                break;
+        if (listener) {
+            listener.call(item);
         }
     }
 

@@ -1,4 +1,4 @@
-﻿import "./Control.js";
+﻿import Control from "./Control.js";
 
 const template = document.createElement("template");
 template.innerHTML = `
@@ -35,7 +35,8 @@ class ControlGroup extends HTMLElement {
     }
 
     set node(value) {
-        this.shadowRoot.querySelector("div").innerHTML = null;
+        const div = this.shadowRoot.querySelector("div");
+        div.innerHTML = null;
 
         this.shadowRoot.querySelector("summary").innerText = value.legend;
 
@@ -45,15 +46,15 @@ class ControlGroup extends HTMLElement {
                     const controlGroup = document.createElement("x-control-group");
                     controlGroup.node = child;
 
-                    this.shadowRoot.querySelector("div").appendChild(controlGroup);
+                    div.appendChild(controlGroup);
 
                     break;
 
                 case "input":
-                    const i = document.createElement("x-control");
-                    i.node = child;
+                    const control = document.createElement(Control.parse(child));
+                    control.node = child;
+                    div.appendChild(control);
 
-                    this.shadowRoot.querySelector("div").appendChild(i);
 
                     break;
             }

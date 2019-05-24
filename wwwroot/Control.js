@@ -1,18 +1,19 @@
 ﻿const template = document.createElement("template");
 template.innerHTML = `
 <style>
+    :host {
+        padding: 10px;
+        display: block;
+    }
+
+        :host(:hover) {
+            background: #f1f1f1;
+        }
+
     label {
         display: inline-block;
         width: 150px;
     }
-
-    div {
-        padding: 10px;
-    }
-
-        div:hover {
-            background: #f1f1f1;
-        }
 
     button {
         background: #bbb;
@@ -56,22 +57,25 @@ template.innerHTML = `
             background-color: yellow;
         }
 </style>
-<div>
-    <label for="i"></label>
-    <input id="i"></input>
-</div>
+<label for="i"></label>
+<input id="i"></input>
 `;
 
 class Control extends HTMLElement {
     constructor() {
         super();
 
-        this.attachShadow({ mode: 'open' });
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+        const shadow = this.attachShadow({ mode: 'open' });
+        shadow.appendChild(template.content.cloneNode(true));
+        shadow.addEventListener("input", process.bind(this));
+    }
+
+    set instance(value) {
+        this._instance = value;
     }
 
     set node(value) {
-        this.shadowRoot.querySelector("div").title = value.title;
+        this.title = value.title;
         this.shadowRoot.querySelector("label").innerText = value.label;
 
         const input = this.shadowRoot.querySelector("input");
@@ -99,7 +103,7 @@ class Control extends HTMLElement {
 
         if (value.inputType !== "button") {
             const buttonElement = document.createElement("button");
-            this.shadowRoot.querySelector("div").appendChild(buttonElement);
+            this.shadowRoot.appendChild(buttonElement);
 
             buttonElement.dataset.type = "reset";
             buttonElement.innerText = "❌";
@@ -113,6 +117,22 @@ class Control extends HTMLElement {
             });
         }
     }
+
+    static parse(node) {
+        switch (node.type) {
+            case "scaleY":
+                return "x-scale-y";
+
+            default:
+                return "x-control";
+        }
+    }
+}
+
+function process() {
+    this._instance.process();
 }
 
 customElements.define("x-control", Control);
+
+export default Control;
