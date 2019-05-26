@@ -73,6 +73,7 @@ class Control extends HTMLElement {
 
         this.input.addEventListener("input", this.process.bind(this));
         this.input.addEventListener("input", e => this.output.value = this.input.value);
+        this.input.addEventListener("change", e => this.dispatchEvent(new Event("change")));
         this.input.addEventListener("click", this.process.bind(this));
         this.input.addEventListener("wheel", e => {
             if (this.type === "range") {
@@ -81,7 +82,10 @@ class Control extends HTMLElement {
             }
         });
 
-        shadow.querySelector("button").addEventListener("click", e => this.value = this.input.defaultValue);
+        shadow.querySelector("button").addEventListener("click", e => {
+            this.value = this.input.defaultValue;
+            this.dispatchEvent(new Event("change"));
+        });
     }
 
     get type() {
@@ -105,6 +109,10 @@ class Control extends HTMLElement {
     set value(value) {
         this.input.value = value;
         this.refresh();
+    }
+
+    get defaultValue() {
+        return this.input.defaultValue;
     }
 
     enumerate(callback) {

@@ -8,3 +8,24 @@ import "./components/SaveSvg.js";
 import "./components/SavePng.js";
 import "./components/HairQuantity.js";
 import "./components/HairDistance.js";
+
+document.querySelectorAll(".control").forEach((control, index, controls) =>
+    control.addEventListener("change", () => {
+        window.location.hash = Array
+            .from(controls)
+            .filter(control => control.value !== control.defaultValue)
+            .map(control => [control.id, control.value].join("="))
+            .join("&");
+    }));
+
+window.addEventListener("load", () => {
+    const query = window.location.hash.substring(1);
+    if (query !== "") {
+        document.getElementById("fieldsets").open = false;
+
+        query
+            .split("&")
+            .map(param => param.split("="))
+            .forEach(pair => document.getElementById(pair[0]).value = pair[1]);
+    }
+});
