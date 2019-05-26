@@ -12,8 +12,24 @@ svg#e {
     position: fixed;
 }
 
-div#fieldsets {
+#fieldsets {
     position: absolute;
-    width: 450px;
+    width: 500px;
     right: 0;
 }
+
+details {
+    border: 1px solid #808080;
+    padding: 10px;
+}
+
+    details:hover {
+        background: #f9f9f9;
+        border: 1px solid;
+    }
+
+    details summary {
+        color: #808080;
+        cursor: pointer;
+        user-select: none;
+    }

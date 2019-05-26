@@ -1,19 +1,13 @@
-﻿<!-- TODO: finish curve refactoring to pathData -->
-<!-- TODO: clone svg to library on page -->
-<!-- TODO: vary mouth curve/ellipse -->
-<!-- TODO: vary mouth open/closed curve -->
+﻿<!-- TODO: save url -->
+<!-- TODO: add mouth two curves -->
 <!-- TODO: add wrinkles -->
+<!-- TODO: add forehead wrinkles -->
+<!-- TODO: add freckles -->
 <!-- TODO: add ears -->
 <!-- TODO: use ref bg img -->
 <!-- TODO: introduce random jigger on paths -->
 <!-- TODO: add random on hair length -->
 <!-- TODO: add random on hair distance -->
-<!-- done TODO: save svg file -->
-<!-- done TODO: save png file -->
-<!-- done TODO: sync properties (eg leftEye.X & rightEye.X) -->
-<!-- done TODO: vary strokes -->
-<!-- done TODO: colours -->
-<!-- done TODO: add hair -->
 
 <!DOCTYPE html>
 <html>
@@ -21,53 +15,247 @@
     <title></title>
     <meta name="viewport" content="width=device-width" />
     <link href="css.css" rel="stylesheet" />
-    <script src="js.js" type="module"></script>
+    <script src="components.js" type="module"></script>
 </head>
 <body>
     <svg id="e" height="600" width="600" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
         <style type="text/css">
-            .default {
+            #hairStrand, #eyebrow, #eye, #background, #head, #nose, #mouth {
                 fill: none;
-                stroke: #000;
+                stroke: black;
                 stroke-width: 8;
                 stroke-linecap: round;
+                vector-effect: non-scaling-stroke;
+            }
+
+            #background {
+                transform-origin: center;
+            }
+
+            #eye, #background, #head {
+                fill: white;
             }
         </style>
         <defs>
-            <path id="hairStrand" class="default" d="M 0 -100 C 0 -50 0 50 0 100" />
-            <path id="eyebrow" class="default" d="M -15 0 C -5 0 5 0 15 0" />
-            <ellipse id="eye" rx="15" ry="15" fill="white" stroke="black" stroke-width="8" />
+            <path id="hairStrand" d="M 0 0 C 0 -25 0 -75 0 -100" />
+            <path id="eyebrow" d="M -15 0 C -5 0 5 0 15 0" />
+            <ellipse id="eye" rx="15" ry="10" />
         </defs>
-        <rect id="background" width="100%" height="100%" fill="white" />
-        <g id="figure" transform="translate(300, 300) rotate(0) scale(1)">
-            <g id="hair" data-distance="15" data-quantity="13">
-                <use xlink:href="#hairStrand" transform="rotate(-90) translate(0 -100.00)" />
-                <use xlink:href="#hairStrand" transform="rotate(-75) translate(0 -101.91)" />
-                <use xlink:href="#hairStrand" transform="rotate(-60) translate(0 -107.76)" />
-                <use xlink:href="#hairStrand" transform="rotate(-45) translate(0 -117.67)" />
-                <use xlink:href="#hairStrand" transform="rotate(-30) translate(0 -130.93)" />
-                <use xlink:href="#hairStrand" transform="rotate(-15) translate(0 -144.09)" />
-                <use xlink:href="#hairStrand" transform="rotate(0)   translate(0 -150)" />
-                <use xlink:href="#hairStrand" transform="rotate(15)  translate(0 -144.09)" />
-                <use xlink:href="#hairStrand" transform="rotate(30)  translate(0 -130.93)" />
-                <use xlink:href="#hairStrand" transform="rotate(45)  translate(0 -117.67)" />
-                <use xlink:href="#hairStrand" transform="rotate(60)  translate(0 -107.76)" />
-                <use xlink:href="#hairStrand" transform="rotate(75)  translate(0 -101.91)" />
-                <use xlink:href="#hairStrand" transform="rotate(90)  translate(0 -100.00)" />
+        <rect id="background" width="100%" height="100%" />
+        <g id="figure" transform="translate(300, 300)">
+            <g id="hair" data-distance="15" data-quantity="13" transform="translate(0 -100)">
+                <use xlink:href="#hairStrand" transform="rotate(-90) scale(-1 1)" />
+                <use xlink:href="#hairStrand" transform="rotate(-75) scale(-1 1)" />
+                <use xlink:href="#hairStrand" transform="rotate(-60) scale(-1 1)" />
+                <use xlink:href="#hairStrand" transform="rotate(-45) scale(-1 1)" />
+                <use xlink:href="#hairStrand" transform="rotate(-30) scale(-1 1)" />
+                <use xlink:href="#hairStrand" transform="rotate(-15) scale(-1 1)" />
+                <use xlink:href="#hairStrand" transform="" />
+                <use xlink:href="#hairStrand" transform="rotate(15)" />
+                <use xlink:href="#hairStrand" transform="rotate(30)" />
+                <use xlink:href="#hairStrand" transform="rotate(45)" />
+                <use xlink:href="#hairStrand" transform="rotate(60)" />
+                <use xlink:href="#hairStrand" transform="rotate(75)" />
+                <use xlink:href="#hairStrand" transform="rotate(90)" />
             </g>
-            <ellipse id="head" rx="100" ry="150" fill="white" stroke="black" stroke-width="8" transform="translate(0 0) rotate(0) scale (1)" />
-            <g id="eyebrows" transform="translate(0, -80) rotate(0)">
-                <use id="leftEyebrow" xlink:href="#eyebrow" transform="translate(-50 0) rotate(0)" />
-                <use id="rightEyebrow" xlink:href="#eyebrow" transform="translate(50 0) rotate(0)" />
+            <ellipse id="head" rx="100" ry="150" transform="translate(0 0) rotate(0) scale(1)" />
+            <g id="eyebrows" transform="translate(0 -80)">
+                <use id="leftEyebrow" xlink:href="#eyebrow" transform="translate(-50 0) rotate(0) scale(-1 1)" />
+                <use id="rightEyebrow" xlink:href="#eyebrow" transform="translate(50 0)" />
             </g>
-            <g id="eyes" transform="translate(0, -30) rotate(0)">
-                <use id="leftEye" xlink:href="#eye" transform="translate(-50 0) rotate(0)" />
-                <use id="rightEye" xlink:href="#eye" transform="translate(50 0) rotate(0)" />
+            <g id="eyes" transform="translate(0 -30)">
+                <use id="leftEye" xlink:href="#eye" transform="translate(-50 0) rotate(0) scale(-1 1)" />
+                <use id="rightEye" xlink:href="#eye" transform="translate(50 0)" />
             </g>
-            <path id="nose" class="default" d="M 0 -100 C 0 -50 0 50 0 100" transform="translate(0, 0) rotate(0)" />
-            <path id="mouth" class="default" d="M -15 0 C -5 0 5 0 15 0" transform="translate(0, 120) rotate(0)" />
+            <path id="nose" d="M 0 -100 C 0 -50 0 50 0 100" />
+            <path id="mouth" d="M -15 0 C -5 0 5 0 15 0" transform="translate(0 120)" />
         </g>
     </svg>
-    <div id="fieldsets"></div>
+    <details id="fieldsets" open>
+        <summary accesskey="`"><u>`</u> Controls</summary>
+        <details>
+            <summary accesskey="1"><u>1</u> Actions</summary>
+            <poses-save-svg name="Save SVG" accesskey="s"></poses-save-svg>
+            <poses-save-png name="Save PNG" accesskey="p"></poses-save-png>
+        </details>
+        <details>
+            <summary accesskey="2"><u>2</u> Background</summary>
+            <poses-property-path name="🔴" for="#background" type="color" path="style fill" value="#ffffff"></poses-property-path>
+            <poses-property-path name="🔘" for="#background" type="range" path="style strokeWidth" min="0" max="300" value="8" step="0.1"></poses-property-path>
+            <poses-property-path name="🔘" for="#background" type="color" path="style stroke" value="#000000"></poses-property-path>
+            <poses-property-path name="rx" for="#background" type="range" path="style rx" min="0" max="300" value="0"></poses-property-path>
+            <poses-property-path name="ry" for="#background" type="range" path="style ry" min="0" max="300" value="0"></poses-property-path>
+            <details>
+                <summary>Transform</summary>
+                <poses-rotate name="🔄" for="#background" min="-180" max="180" value="0"></poses-rotate>
+                <poses-translate name="↔" for="#background" dimension="x" min="-300" max="300" value="0"></poses-translate>
+                <poses-translate name="↕" for="#background" dimension="y" min="-300" max="300" value="0"></poses-translate>
+                <poses-scale name="Scale X" for="#background" dimension="x" min="0" max="2" value="1" step="0.01"></poses-scale>
+                <poses-scale name="Scale Y" for="#background" dimension="y" min="0" max="2" value="1" step="0.01"></poses-scale>
+                <poses-skew name="Skew X" for="#background" dimension="x" min="-90" max="90" value="0"></poses-skew>
+                <poses-skew name="Skew Y" for="#background" dimension="y" min="-90" max="90" value="0"></poses-skew>
+            </details>
+        </details>
+        <details>
+            <summary accesskey="3"><u>3</u> Figure</summary>
+            <poses-rotate name="🔄" for="#figure" min="-180" max="180" value="0"></poses-rotate>
+            <poses-translate name="↔" for="#figure" dimension="x" min="0" max="600" value="300"></poses-translate>
+            <poses-translate name="↕" for="#figure" dimension="y" min="0" max="600" value="300"></poses-translate>
+            <poses-scale name="Scale X" for="#figure" dimension="x" min="0" max="2" value="1" step="0.01"></poses-scale>
+            <poses-scale name="Scale Y" for="#figure" dimension="y" min="0" max="2" value="1" step="0.01"></poses-scale>
+            <poses-skew name="Skew X" for="#figure" dimension="x" min="-90" max="90" value="0"></poses-skew>
+            <poses-skew name="Skew Y" for="#figure" dimension="y" min="-90" max="90" value="0"></poses-skew>
+        </details>
+        <details>
+            <summary accesskey="4"><u>4</u> Hair</summary>
+            <poses-hair-quantity name="Quantity" min="0" max="100" value="13"></poses-hair-quantity>
+            <poses-hair-distance name="Distance" min="0" max="100" value="15"></poses-hair-distance>
+            <poses-property-path name="🔘" for="#hairStrand" type="range" path="style strokeWidth" min="0" max="100" value="8" step="0.1"></poses-property-path>
+            <poses-property-path name="🔴" for="#hairStrand" type="color" path="style fill" value="#ffffff"></poses-property-path>
+            <poses-property-path name="🔘" for="#hairStrand" type="color" path="style stroke" value="#000000"></poses-property-path>
+            <details>
+                <summary>Transform</summary>
+                <poses-rotate name="🔄" for="#hair" min="-180" max="180" value="0"></poses-rotate>
+                <poses-translate name="↔" for="#hair" dimension="x" min="-300" max="300" value="0"></poses-translate>
+                <poses-translate name="↕" for="#hair" dimension="y" min="-300" max="200" value="-100"></poses-translate>
+                <poses-scale name="Scale X" for="#hair" dimension="x" min="0" max="2" value="1" step="0.01"></poses-scale>
+                <poses-scale name="Scale Y" for="#hair" dimension="y" min="0" max="2" value="1" step="0.01"></poses-scale>
+                <poses-skew name="Skew X" for="#hair" dimension="x" min="-90" max="90" value="0"></poses-skew>
+                <poses-skew name="Skew Y" for="#hair" dimension="y" min="-90" max="90" value="0"></poses-skew>
+            </details>
+            <details>
+                <summary>Curve</summary>
+                <poses-path-data name="X1" for="#hairStrand" pointindex="1" valueindex="4" min="-100" max="100" value="0"></poses-path-data>
+                <poses-path-data name="Y1" for="#hairStrand" pointindex="1" valueindex="5" min="-200" max="0" value="-100"></poses-path-data>
+                <poses-path-data name="X2 1" for="#hairStrand" pointindex="1" valueindex="2" min="-100" max="100" value="0"></poses-path-data>
+                <poses-path-data name="Y2 1" for="#hairStrand" pointindex="1" valueindex="3" min="-175" max="25" value="-75"></poses-path-data>
+                <poses-path-data name="X1 1" for="#hairStrand" pointindex="1" valueindex="0" min="-100" max="100" value="0"></poses-path-data>
+                <poses-path-data name="Y1 1" for="#hairStrand" pointindex="1" valueindex="1" min="-125" max="75" value="-25"></poses-path-data>
+                <poses-path-data name="X0" for="#hairStrand" pointindex="0" valueindex="0" min="-100" max="100" value="0"></poses-path-data>
+                <poses-path-data name="Y0" for="#hairStrand" pointindex="0" valueindex="1" min="-100" max="100" value="0"></poses-path-data>
+            </details>
+        </details>
+        <details>
+            <summary accesskey="5"><u>5</u> Head</summary>
+            <poses-property-path name="🔴" for="#head" type="color" path="style fill" value="#ffffff"></poses-property-path>
+            <poses-property-path name="🔘" for="#head" type="range" path="style strokeWidth" min="0" max="300" value="8"></poses-property-path>
+            <poses-property-path name="🔘" for="#head" type="color" path="style stroke" value="#000000"></poses-property-path>
+            <poses-property-path name="rx" for="#head" type="range" path="style rx" min="0" max="200" value="100"></poses-property-path>
+            <poses-property-path name="ry" for="#head" type="range" path="style ry" min="50" max="250" value="150"></poses-property-path>
+            <details>
+                <summary>Transform</summary>
+                <poses-rotate name="🔄" for="#head" min="-180" max="180" value="0"></poses-rotate>
+                <poses-translate name="↔" for="#head" dimension="x" min="-300" max="300" value="0"></poses-translate>
+                <poses-translate name="↕" for="#head" dimension="y" min="-300" max="300" value="0"></poses-translate>
+                <poses-scale name="Scale X" for="#head" dimension="x" min="0" max="2" value="1" step="0.01"></poses-scale>
+                <poses-scale name="Scale Y" for="#head" dimension="y" min="0" max="2" value="1" step="0.01"></poses-scale>
+                <poses-skew name="Skew X" for="#head" dimension="x" min="-90" max="90" value="0"></poses-skew>
+                <poses-skew name="Skew Y" for="#head" dimension="y" min="-90" max="90" value="0"></poses-skew>
+            </details>
+        </details>
+        <details>
+            <summary accesskey="6"><u>6</u> Eyebrows</summary>
+            <poses-rotate name="🔄 mirrored" for="#eyebrow" min="-90" max="90" value="0"></poses-rotate>
+            <poses-rotate name="🔄 each" for="#leftEyebrow, #rightEyebrow" min="-90" max="90" value="0"></poses-rotate>
+            <poses-property-path name="🔴" for="#eyebrow" type="color" path="style fill" value="#ffffff"></poses-property-path>
+            <poses-property-path name="🔘" for="#eyebrow" type="range" path="style strokeWidth" min="0" max="300" value="8" step="0.1"></poses-property-path>
+            <poses-property-path name="🔘" for="#eyebrow" type="color" path="style stroke" value="#000000"></poses-property-path>
+            <details>
+                <summary>Transform</summary>
+                <poses-rotate name="🔄" for="#eyebrows" min="-180" max="180" value="0"></poses-rotate>
+                <poses-translate name="↔" for="#eyebrows" dimension="x" min="-100" max="100" value="0"></poses-translate>
+                <poses-translate name="↕" for="#eyebrows" dimension="y" min="-180" max="20" value="-80" step="-1"></poses-translate>
+                <poses-scale name="Scale X" for="#eyebrows" dimension="x" min="0" max="2" value="1" step="0.01"></poses-scale>
+                <poses-scale name="Scale Y" for="#eyebrows" dimension="y" min="0" max="2" value="1" step="0.01"></poses-scale>
+                <poses-skew name="Skew X" for="#eyebrows" dimension="x" min="-90" max="90" value="0"></poses-skew>
+                <poses-skew name="Skew Y" for="#eyebrows" dimension="y" min="-90" max="90" value="0"></poses-skew>
+            </details>
+            <details>
+                <summary>Curve</summary>
+                <poses-path-data name="X0" for="#eyebrow" pointindex="0" valueindex="0" min="-115" max="75" value="-15"></poses-path-data>
+                <poses-path-data name="Y0" for="#eyebrow" pointindex="0" valueindex="1" min="-100" max="100" value="0"></poses-path-data>
+                <poses-path-data name="X1 1" for="#eyebrow" pointindex="1" valueindex="0" min="-105" max="95" value="-5"></poses-path-data>
+                <poses-path-data name="Y1 1" for="#eyebrow" pointindex="1" valueindex="1" min="-100" max="100" value="0"></poses-path-data>
+                <poses-path-data name="X2 1" for="#eyebrow" pointindex="1" valueindex="2" min="-95" max="105" value="5"></poses-path-data>
+                <poses-path-data name="Y2 1" for="#eyebrow" pointindex="1" valueindex="3" min="-100" max="100" value="0"></poses-path-data>
+                <poses-path-data name="X1" for="#eyebrow" pointindex="1" valueindex="4" min="-75" max="115" value="15"></poses-path-data>
+                <poses-path-data name="Y1" for="#eyebrow" pointindex="1" valueindex="5" min="-100" max="100" value="0"></poses-path-data>
+            </details>
+        </details>
+        <details>
+            <summary accesskey="7"><u>7</u> Eyes</summary>
+            <poses-property-path name="rx" for="#eye" type="range" path="style rx" min="0" max="100" value="15"></poses-property-path>
+            <poses-property-path name="ry" for="#eye" type="range" path="style ry" min="0" max="100" value="10"></poses-property-path>
+            <poses-rotate name="🔄 mirrored" for="#eye" min="-90" max="90" value="0"></poses-rotate>
+            <poses-rotate name="🔄 each" for="#leftEye, #rightEye" min="-90" max="90" value="0"></poses-rotate>
+            <poses-property-path name="🔴" for="#eye" type="color" path="style fill" value="#ffffff"></poses-property-path>
+            <poses-property-path name="🔘" for="#eye" type="range" path="style strokeWidth" min="0" max="300" value="8" step="0.1"></poses-property-path>
+            <poses-property-path name="🔘" for="#eye" type="color" path="style stroke" value="#000000"></poses-property-path>
+            <details>
+                <summary>Transform</summary>
+                <poses-rotate name="🔄" for="#eyes" min="-180" max="180" value="0"></poses-rotate>
+                <poses-translate name="↔" for="#eyes" dimension="x" min="-100" max="100" value="0"></poses-translate>
+                <poses-translate name="↕" for="#eyes" dimension="y" min="-130" max="70" value="-30" step="-1"></poses-translate>
+                <poses-scale name="Scale X" for="#eyes" dimension="x" min="0" max="2" value="1" step="0.01"></poses-scale>
+                <poses-scale name="Scale Y" for="#eyes" dimension="y" min="0" max="2" value="1" step="0.01"></poses-scale>
+                <poses-skew name="Skew X" for="#eyes" dimension="x" min="-90" max="90" value="0"></poses-skew>
+                <poses-skew name="Skew Y" for="#eyes" dimension="y" min="-90" max="90" value="0"></poses-skew>
+            </details>
+        </details>
+        <details>
+            <summary accesskey="8"><u>8</u> Nose</summary>
+            <poses-property-path name="🔴" for="#nose" type="color" path="style fill" value="#ffffff"></poses-property-path>
+            <poses-property-path name="🔘" for="#nose" type="range" path="style strokeWidth" min="0" max="300" value="8" step="0.1"></poses-property-path>
+            <poses-property-path name="🔘" for="#nose" type="color" path="style stroke" value="#000000"></poses-property-path>
+            <details>
+                <summary>Transform</summary>
+                <poses-rotate name="🔄" for="#nose" min="-180" max="180" value="0"></poses-rotate>
+                <poses-translate name="↔" for="#nose" dimension="x" min="-100" max="100" value="0"></poses-translate>
+                <poses-translate name="↕" for="#nose" dimension="y" min="-100" max="100" value="0"></poses-translate>
+                <poses-scale name="Scale X" for="#nose" dimension="x" min="0" max="2" value="1" step="0.01"></poses-scale>
+                <poses-scale name="Scale Y" for="#nose" dimension="y" min="0" max="2" value="1" step="0.01"></poses-scale>
+                <poses-skew name="Skew X" for="#nose" dimension="x" min="-90" max="90" value="0"></poses-skew>
+                <poses-skew name="Skew Y" for="#nose" dimension="y" min="-90" max="90" value="0"></poses-skew>
+            </details>
+            <details>
+                <summary>Curve</summary>
+                <poses-path-data name="X0" for="#nose" pointindex="0" valueindex="0" min="-100" max="100" value="0"></poses-path-data>
+                <poses-path-data name="Y0" for="#nose" pointindex="0" valueindex="1" min="-200" max="0" value="-100"></poses-path-data>
+                <poses-path-data name="X1 1" for="#nose" pointindex="1" valueindex="0" min="-100" max="100" value="0"></poses-path-data>
+                <poses-path-data name="Y1 1" for="#nose" pointindex="1" valueindex="1" min="-150" max="50" value="-50"></poses-path-data>
+                <poses-path-data name="X2 1" for="#nose" pointindex="1" valueindex="2" min="-100" max="100" value="0"></poses-path-data>
+                <poses-path-data name="Y2 1" for="#nose" pointindex="1" valueindex="3" min="-50" max="150" value="50"></poses-path-data>
+                <poses-path-data name="X1" for="#nose" pointindex="1" valueindex="4" min="-100" max="100" value="0"></poses-path-data>
+                <poses-path-data name="Y1" for="#nose" pointindex="1" valueindex="5" min="0" max="200" value="100"></poses-path-data>
+            </details>
+        </details>
+        <details>
+            <summary accesskey="9"><u>9</u> Mouth</summary>
+            <poses-property-path name="🔴" for="#mouth" type="color" path="style fill" value="#ffffff"></poses-property-path>
+            <poses-property-path name="🔘" for="#mouth" type="range" path="style strokeWidth" min="0" max="300" value="8" step="0.1"></poses-property-path>
+            <poses-property-path name="🔘" for="#mouth" type="color" path="style stroke" value="#000000"></poses-property-path>
+            <details>
+                <summary>Transform</summary>
+                <poses-rotate name="🔄" for="#mouth" min="-180" max="180" value="0"></poses-rotate>
+                <poses-translate name="↔" for="#mouth" dimension="x" min="-100" max="100" value="0"></poses-translate>
+                <poses-translate name="↕" for="#mouth" dimension="y" min="20" max="200" value="120"></poses-translate>
+                <poses-scale name="Scale X" for="#mouth" dimension="x" min="0" max="2" value="1" step="0.01"></poses-scale>
+                <poses-scale name="Scale Y" for="#mouth" dimension="y" min="0" max="2" value="1" step="0.01"></poses-scale>
+                <poses-skew name="Skew X" for="#mouth" dimension="x" min="-90" max="90" value="0"></poses-skew>
+                <poses-skew name="Skew Y" for="#mouth" dimension="y" min="-90" max="90" value="0"></poses-skew>
+            </details>
+            <details>
+                <summary>Curve</summary>
+                <poses-path-data name="X0" for="#mouth" pointindex="0" valueindex="0" min="-115" max="75" value="-15"></poses-path-data>
+                <poses-path-data name="Y0" for="#mouth" pointindex="0" valueindex="1" min="-100" max="100" value="0"></poses-path-data>
+                <poses-path-data name="X1 1" for="#mouth" pointindex="1" valueindex="0" min="-105" max="95" value="-5"></poses-path-data>
+                <poses-path-data name="Y1 1" for="#mouth" pointindex="1" valueindex="1" min="-100" max="100" value="0"></poses-path-data>
+                <poses-path-data name="X2 1" for="#mouth" pointindex="1" valueindex="2" min="-95" max="105" value="5"></poses-path-data>
+                <poses-path-data name="Y2 1" for="#mouth" pointindex="1" valueindex="3" min="-100" max="100" value="0"></poses-path-data>
+                <poses-path-data name="X1" for="#mouth" pointindex="1" valueindex="4" min="-75" max="115" value="15"></poses-path-data>
+                <poses-path-data name="Y1" for="#mouth" pointindex="1" valueindex="5" min="-100" max="100" value="0"></poses-path-data>
+            </details>
+        </details>
+    </details>
 </body>
 </html>

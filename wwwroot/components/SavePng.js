@@ -1,6 +1,6 @@
-﻿import Control from "./Control.js";
+﻿import ButtonControl from "./ButtonControl.js";
 
-class SavePng extends Control {
+class SavePng extends ButtonControl {
     constructor() {
         super();
         super.instance = this;

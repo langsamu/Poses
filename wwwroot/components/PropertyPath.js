@@ -34,3 +34,5 @@ function getPathNavigatorReduceFunction(value) {
 }
 
 customElements.define("poses-property-path", PropertyPath);
+
+export default PropertyPath;
