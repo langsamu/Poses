@@ -71,42 +71,24 @@ class Control extends HTMLElement {
         const shadow = this.attachShadow({ mode: 'open' });
         shadow.appendChild(template.content.cloneNode(true));
 
-        this.input.addEventListener("input", process.bind(this));
+        this.input.addEventListener("input", this.process.bind(this));
         this.input.addEventListener("input", e => this.output.value = this.input.value);
-        this.input.addEventListener("click", process.bind(this));
+        this.input.addEventListener("click", this.process.bind(this));
         this.input.addEventListener("wheel", e => {
             if (this.type === "range") {
                 e.preventDefault();
-                this.input.value = parseFloat(this.input.value) + Math.sign(e.deltaY) * parseFloat(this.input.step || 1);
-                this.input.dispatchEvent(new Event("input"));
-
+                this.value = parseFloat(this.input.value) + Math.sign(e.deltaY) * parseFloat(this.input.step || 1);
             }
         });
 
-        shadow.querySelector("button").addEventListener("click", e => {
-            this.input.value = shadow.querySelector("input").defaultValue;
-            this.input.dispatchEvent(new Event("input"));
-        });
-    }
-
-    set instance(value) {
-        this._instance = value;
-    }
-
-    enumerate(input, callback) {
-        this.query(input).forEach(callback.bind(input));
-    }
-
-    query(input) {
-        return Array.from(document.getElementById("e").querySelectorAll(input.dataset.for));
-    }
-
-    set type(value) {
-        this.shadowRoot.querySelector("input").type = value;
+        shadow.querySelector("button").addEventListener("click", e => this.value = this.input.defaultValue);
     }
 
     get type() {
         return this.shadowRoot.querySelector("input").type;
+    }
+    set type(value) {
+        this.input.type = value;
     }
 
     get input() {
@@ -115,6 +97,22 @@ class Control extends HTMLElement {
 
     get output() {
         return this.shadowRoot.querySelector("output");
+    }
+
+    get value() {
+        return this.input.value;
+    }
+    set value(value) {
+        this.input.value = value;
+        this.refresh();
+    }
+
+    enumerate(callback) {
+        Array.from(document.getElementById("e").querySelectorAll(this.input.dataset.for)).forEach(callback);
+    }
+
+    refresh() {
+        this.input.dispatchEvent(new Event("input"));
     }
 
     attributeChangedCallback(name, oldValue, newValue) {
@@ -128,9 +126,6 @@ class Control extends HTMLElement {
                 break;
 
             case "for":
-            case "path":
-            case "pointindex":
-            case "valueindex":
                 this.input.dataset[name] = newValue;
                 break;
 
@@ -142,8 +137,7 @@ class Control extends HTMLElement {
                 break;
 
             case "value":
-                this.input.value = newValue;
-                this.output.value = newValue;
+                this.value = newValue;
                 this.input.defaultValue = newValue;
         }
     }
@@ -157,16 +151,9 @@ class Control extends HTMLElement {
             "step",
             "value",
             "for",
-            "path",
-            "pointindex",
-            "valueindex",
             "accesskey"
         ];
     }
-}
-
-function process(e) {
-    this._instance.process(e);
 }
 
 export default Control;

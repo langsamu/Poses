@@ -12,7 +12,7 @@ class ButtonControl extends Control {
 
         switch (name) {
             case "name":
-                this.shadowRoot.querySelector("input").value = newValue;
+                this.input.value = newValue;
                 break;
         }
     }

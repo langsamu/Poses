@@ -3,13 +3,10 @@
 class Translate extends RangeControl {
     constructor() {
         super();
-        super.instance = this;
     }
 
-    process(e) {
-        const input = e.path[0];
-
-        super.enumerate(input, svgElement => {
+    process() {
+        super.enumerate(svgElement => {
             let transform = Array.from(svgElement.transform.baseVal).filter(t => t.type === SVGTransform.SVG_TRANSFORM_TRANSLATE)[0];
 
             if (transform === undefined) {
@@ -19,11 +16,11 @@ class Translate extends RangeControl {
 
             switch (this._dimension) {
                 case "x":
-                    transform.setTranslate(input.value, transform.matrix.f);
+                    transform.setTranslate(this.value, transform.matrix.f);
                     break;
 
                 case "y":
-                    transform.setTranslate(transform.matrix.e, input.value);
+                    transform.setTranslate(transform.matrix.e, this.value);
                     break;
             }
         });

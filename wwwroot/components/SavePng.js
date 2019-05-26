@@ -3,7 +3,6 @@
 class SavePng extends ButtonControl {
     constructor() {
         super();
-        super.instance = this;
     }
 
     process() {

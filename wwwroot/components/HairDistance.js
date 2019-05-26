@@ -3,15 +3,12 @@
 class HairDistance extends HairControl {
     constructor() {
         super();
-        super.instance = this;
     }
 
-    process(e) {
-        var input = e.path[0];
-
+    process() {
         const svg = document.getElementById("e");
         const element = svg.getElementById("hair");
-        element.setAttribute("data-distance", input.valueAsNumber);
+        element.setAttribute("data-distance", this.input.valueAsNumber);
 
         super.recreateHair();
     }

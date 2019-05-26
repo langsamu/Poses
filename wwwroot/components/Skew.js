@@ -3,40 +3,33 @@
 class Skew extends RangeControl {
     constructor() {
         super();
-        super.instance = this;
     }
 
-    process(e) {
-        const input = e.path[0];
+    process() {
+        super.enumerate(svgElement => {
+            let transformType;
+            let transformFunction;
 
-        super.enumerate(input, svgElement => {
-            let type;
             switch (this._dimension) {
                 case "x":
-                    type = SVGTransform.SVG_TRANSFORM_SKEWX;
+                    transformType = SVGTransform.SVG_TRANSFORM_SKEWX;
+                    transformFunction = SVGTransform.prototype.setSkewX;
                     break;
 
                 case "y":
-                    type = SVGTransform.SVG_TRANSFORM_SKEWY;
+                    transformType = SVGTransform.SVG_TRANSFORM_SKEWY;
+                    transformFunction = SVGTransform.prototype.setSkewY;
                     break;
             }
 
-            let transform = Array.from(svgElement.transform.baseVal).filter(t => t.type === type)[0];
+            let transform = Array.from(svgElement.transform.baseVal).filter(t => t.type === transformType)[0];
 
             if (transform === undefined) {
                 transform = document.getElementById("e").createSVGTransform();
                 svgElement.transform.baseVal.appendItem(transform);
             }
 
-            switch (this._dimension) {
-                case "x":
-                    transform.setSkewX(input.value);
-                    break;
-
-                case "y":
-                    transform.setSkewY(input.value);
-                    break;
-            }
+            transformFunction.call(transform, this.value);
         });
     }
 

@@ -3,18 +3,31 @@
 class PropertyPath extends Control {
     constructor() {
         super();
-        super.instance = this;
     }
 
-    process(e) {
-        var input = e.path[0];
+    process() {
+        const properties = tokenize(this._path);
+        const boundStepper = getPathNavigatorReduceFunction(this.value);
 
-        const properties = tokenize(input.dataset.path);
-        const boundStepper = getPathNavigatorReduceFunction(input.value);
-
-        super.enumerate(input, function (svgElement) {
+        super.enumerate(svgElement => {
             properties.reduce(boundStepper, svgElement);
         });
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        super.attributeChangedCallback(name, oldValue, newValue);
+
+        switch (name) {
+            case "path":
+                this._path = newValue;
+                break;
+        }
+    }
+
+    static get observedAttributes() {
+        return [
+            "path"
+        ].concat(super.observedAttributes);
     }
 }
 

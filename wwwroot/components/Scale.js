@@ -3,13 +3,10 @@
 class Scale extends RangeControl {
     constructor() {
         super();
-        super.instance = this;
     }
 
-    process(e) {
-        const input = e.path[0];
-
-        super.enumerate(input, svgElement => {
+    process() {
+        this.enumerate(svgElement => {
             let transform = Array.from(svgElement.transform.baseVal).filter(t => t.type === SVGTransform.SVG_TRANSFORM_SCALE)[0];
 
             if (transform === undefined) {
@@ -19,11 +16,11 @@ class Scale extends RangeControl {
 
             switch (this._dimension) {
                 case "x":
-                    transform.setScale(input.value, transform.matrix.d);
+                    transform.setScale(this.value, transform.matrix.d);
                     break;
 
                 case "y":
-                    transform.setScale(transform.matrix.a, input.value);
+                    transform.setScale(transform.matrix.a, this.value);
                     break;
             }
         });

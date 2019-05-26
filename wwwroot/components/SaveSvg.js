@@ -3,7 +3,6 @@
 class SaveSvg extends ButtonControl {
     constructor() {
         super();
-        super.instance = this;
     }
 
     process() {
