@@ -32,7 +32,6 @@ class PathData extends Control {
             "valueindex"
         ].concat(super.observedAttributes);
     }
-
 }
 
 customElements.define("poses-path-data", PathData);

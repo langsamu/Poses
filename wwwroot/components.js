@@ -6,8 +6,7 @@ import "./components/PropertyPath.js";
 import "./components/PathData.js";
 import "./components/SaveSvg.js";
 import "./components/SavePng.js";
-import "./components/HairQuantity.js";
-import "./components/HairDistance.js";
+import "./components/Quantity.js";
 
 document.querySelectorAll(".control").forEach((control, index, controls) =>
     control.addEventListener("change", () => {
@@ -28,4 +27,6 @@ window.addEventListener("load", () => {
             .map(param => param.split("="))
             .forEach(pair => document.getElementById(pair[0]).value = pair[1]);
     }
+
+    document.body.style.display = "initial";
 });

@@ -10,7 +10,7 @@ class Scale extends RangeControl {
             let transform = Array.from(svgElement.transform.baseVal).filter(t => t.type === SVGTransform.SVG_TRANSFORM_SCALE)[0];
 
             if (transform === undefined) {
-                transform = document.getElementById("e").createSVGTransform();
+                transform = svgElement.ownerSVGElement.createSVGTransform();
                 svgElement.transform.baseVal.appendItem(transform);
             }
 
