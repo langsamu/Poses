@@ -13,7 +13,7 @@ document.querySelectorAll(".control").forEach((control, index, controls) =>
         window.location.hash = Array
             .from(controls)
             .filter(control => control.value !== control.defaultValue)
-            .map(control => [control.id, control.value].join("="))
+            .map(control => [control.id, encodeURIComponent(control.value)].join("="))
             .join("&");
     }));
 
@@ -25,7 +25,12 @@ window.addEventListener("load", () => {
         query
             .split("&")
             .map(param => param.split("="))
-            .forEach(pair => document.getElementById(pair[0]).value = pair[1]);
+            .forEach(pair => {
+                const control = document.getElementById(pair[0]);
+                if (control) {
+                    control.value = decodeURIComponent(pair[1]);
+                }
+            });
     }
 
     document.body.style.display = "initial";
