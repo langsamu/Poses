@@ -26,9 +26,7 @@ class Quantity extends RangeControl {
                 svgElement.appendChild(use);
             }
 
-            if (this._defaultrotation) {
-                svgElement.querySelectorAll("use").forEach(Rotate.process.bind(this, parseFloat(this._defaultrotation)));
-            }
+            document.querySelectorAll(this._dependants).forEach(d => d.process());
         });
     }
 
@@ -37,7 +35,7 @@ class Quantity extends RangeControl {
 
         switch (name) {
             case "href":
-            case "defaultrotation":
+            case "dependants":
                 this["_" + name] = newValue;
                 break;
         }
@@ -46,7 +44,7 @@ class Quantity extends RangeControl {
     static get observedAttributes() {
         return [
             "href",
-            "defaultrotation"
+            "dependants"
         ].concat(super.observedAttributes);
     }
 }

@@ -107,8 +107,10 @@
         </details>
         <details>
             <summary accesskey="4"><u>4</u> Hair</summary>
-            <poses-quantity id="hairQuantity" class="control" name="Quantity" for="#hair" href="#hairStrand" defaultrotation="-90" min="0" max="100" value="13"></poses-quantity>
+            <poses-quantity id="hairQuantity" class="control" name="Quantity" for="#hair" href="#hairStrand" dependants="#hairStrandRotate, #hairDistanceX, #hairDistanceY" min="0" max="100" value="13"></poses-quantity>
             <poses-rotate id="hairStrandRotate" class="control" name="🔄" for="#hair use" min="-180" max="180" value="-90"></poses-rotate>
+            <poses-translate id="hairDistanceX" class="control" name="Distance X" for="#hair use" dimension="x" min="-100" max="100" value="0"></poses-translate>
+            <poses-translate id="hairDistanceY" class="control" name="Distance Y" for="#hair use" dimension="y" min="-100" max="100" value="0"></poses-translate>
             <poses-property-path id="hairStrokeWidth" class="control" name="🔘" for="#hairStrand" type="range" path="style strokeWidth" min="0" max="100" value="8" step="0.1"></poses-property-path>
             <poses-property-path id="hairFill" class="control" name="🔴" for="#hairStrand" type="color" path="style fill" value="#ffffff"></poses-property-path>
             <poses-property-path id="hairStroke" class="control" name="🔘" for="#hairStrand" type="color" path="style stroke" value="#000000"></poses-property-path>
@@ -156,6 +158,8 @@
             <summary accesskey="6"><u>6</u> Eyebrows</summary>
             <poses-rotate id="eyebrowRotateMirrored" class="control" name="🔄 mirrored" for="#eyebrows use" min="-90" max="90" value="0"></poses-rotate>
             <poses-rotate id="eyebrowRotateEach" class="control" name="🔄 each" for="#eyebrow" min="-90" max="90" value="0"></poses-rotate>
+            <poses-translate id="eyebrowDistanceX" class="control" name="Distance X" for="#eyebrows use" dimension="x" min="-150" max="50" value="-50"></poses-translate>
+            <poses-translate id="eyebrowDistanceY" class="control" name="Distance Y" for="#eyebrows use" dimension="y" min="-100" max="100" value="0"></poses-translate>
             <poses-property-path id="eyebrowFill" class="control" name="🔴" for="#eyebrow" type="color" path="style fill" value="#ffffff"></poses-property-path>
             <poses-property-path id="eyebrowStrokeWidth" class="control" name="🔘" for="#eyebrow" type="range" path="style strokeWidth" min="0" max="300" value="8" step="0.1"></poses-property-path>
             <poses-property-path id="eyebrowStroke" class="control" name="🔘" for="#eyebrow" type="color" path="style stroke" value="#000000"></poses-property-path>
@@ -187,6 +191,8 @@
             <poses-property-path id="eyeRy" class="control" name="ry" for="#eye" type="range" path="style ry" min="0" max="100" value="10"></poses-property-path>
             <poses-rotate id="eyeRotateMirrored" class="control" name="🔄 mirrored" for="#eyes use" min="-90" max="90" value="0"></poses-rotate>
             <poses-rotate id="eyeRotateEach" class="control" name="🔄 each" for="#eye" min="-90" max="90" value="0"></poses-rotate>
+            <poses-translate id="eyeDistanceX" class="control" name="Distance X" for="#eyes use" dimension="x" min="-150" max="50" value="-50"></poses-translate>
+            <poses-translate id="eyeDistanceY" class="control" name="Distance Y" for="#eyes use" dimension="y" min="-100" max="100" value="0"></poses-translate>
             <poses-property-path id="eyeFill" class="control" name="🔴" for="#eye" type="color" path="style fill" value="#ffffff"></poses-property-path>
             <poses-property-path id="eyeStrokeWidth" class="control" name="🔘" for="#eye" type="range" path="style strokeWidth" min="0" max="300" value="8" step="0.1"></poses-property-path>
             <poses-property-path id="eyeStroke" class="control" name="🔘" for="#eye" type="color" path="style stroke" value="#000000"></poses-property-path>
